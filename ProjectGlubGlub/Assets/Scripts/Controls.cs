@@ -15,6 +15,8 @@ public class Controls : MonoBehaviour {
     private Vector3 currentMousePosition = Vector3.zero;
     private Vector3 initialMousePosition = Vector3.zero;
 
+    private int perfectCounter;
+
     [HideInInspector]
     public bool isAbleToJump = true;
     public bool isPerfectJump = true;
@@ -64,7 +66,11 @@ public class Controls : MonoBehaviour {
         if (isAbleToJump)
         {
             // faz coisas perfeitas
-            if(isPerfectJump)
+            if(isPerfectJump){
+                
+            } else {
+                
+            }
             time.slowTime();
             line.enabled = true;
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
