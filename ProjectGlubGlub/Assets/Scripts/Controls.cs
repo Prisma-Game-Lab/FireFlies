@@ -84,9 +84,9 @@ public class Controls : MonoBehaviour {
             time.normalTime();
             line.enabled = false;
             clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition, isPerfectJump);
+            isAbleToJump = false;
             currentMousePosition = Vector3.zero;
             initialMousePosition = Vector3.zero;
-            isAbleToJump = false;
             isPerfectJump = false;
             Arrow.SetActive(false);
         }
