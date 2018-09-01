@@ -10,6 +10,9 @@ public class Controls : MonoBehaviour {
 
     private Vector3 currentMousePosition = Vector3.zero;
 
+    [HideInInspector]
+    public bool isAbleToJump = true;
+
 	private void Update()
 	{
         if(Input.GetMouseButton(0)){
@@ -47,10 +50,13 @@ public class Controls : MonoBehaviour {
     // Está clicando
     private void OnMouseDrag()
     {
-        line.enabled = true;
-        currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
-        line.SetPosition(0, player.transform.position + currentMousePosition);
-        line.SetPosition(1, player.transform.position + currentMousePosition*-1);
+        if (isAbleToJump)
+        {
+            line.enabled = true;
+            currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+            line.SetPosition(0, player.transform.position + currentMousePosition);
+            line.SetPosition(1, player.transform.position + currentMousePosition * -1);
+        }
     }
 
     // Soltou o clique
@@ -59,6 +65,7 @@ public class Controls : MonoBehaviour {
         line.enabled = false;
         clickImpulsePlayerComponent.CreateImpulse(currentMousePosition);
         currentMousePosition = Vector3.zero;
+        isAbleToJump = false;
 	}
 
 }
