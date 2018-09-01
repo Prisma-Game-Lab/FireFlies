@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ClickImpulse : MonoBehaviour {
 
-    [Tooltip("forca que é al=plicada a qualquer vetor de pulo")]
+    [Tooltip("forca que é aplicada a qualquer vetor de pulo")]
     public float ImpulseForce = 1.0f;
+    [Tooltip("se 0 ele não possui um limite de pulo")]
+    public float MaxImpulseForceVertical = 0;
+    [Tooltip("se 0 ele não possui um limite de pulo")]
+    public float MaxImpulseForceHorizontal = 0;
 
     private Rigidbody2D rb;
 
@@ -17,21 +21,18 @@ public class ClickImpulse : MonoBehaviour {
 	// Faz o pulo do jogador
 	public void CreateImpulse(Vector3 mousePosition){
 
-        rb.AddForce((mousePosition - transform.position) * ImpulseForce);
+        Vector3 impulse = new Vector3(mousePosition.x * -1, mousePosition.y * -1, 0) * ImpulseForce;
 
+        if (MaxImpulseForceHorizontal != 0 && (impulse.x > MaxImpulseForceHorizontal)){
+            Debug.Log("Limite Horizontal Maximo");
+            impulse = new Vector3(-1, mousePosition.y * -1, 0) * MaxImpulseForceHorizontal;
+        }
+
+        if (MaxImpulseForceVertical != 0 && (impulse.y > MaxImpulseForceVertical)) {
+            Debug.Log("Limite Vertical Maximo");
+            impulse = new Vector3(impulse.x, -1, 0) * MaxImpulseForceHorizontal;
+        }
+
+        rb.AddForce(impulse);
     }
-
-
-
-
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
