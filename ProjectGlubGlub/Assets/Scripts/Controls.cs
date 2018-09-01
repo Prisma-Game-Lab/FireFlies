@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour {
 
+    private GameObject player;
     private ClickImpulse clickImpulsePlayerComponent;
     private LineRenderer line;
 
     private Vector3 currentMousePosition = Vector3.zero;
 
+	private void Update()
+	{
+        if(Input.GetMouseButton(0)){
+            OnMouseDrag();
+        } 
+
+        if (Input.GetMouseButtonUp(0)){
+            OnMouseUp();
+        }
+	}
+
 	private void OnEnable()
 	{
-        line = this.GetComponent<LineRenderer>();
-        clickImpulsePlayerComponent = this.GetComponent<ClickImpulse>();
+        player = GameObject.Find("Player");
+        line = player.GetComponent<LineRenderer>();
+        clickImpulsePlayerComponent = player.GetComponent<ClickImpulse>();
         lineSetup();
 	}
 
@@ -28,16 +41,16 @@ public class Controls : MonoBehaviour {
     // Clicou
 	private void OnMouseDown()
 	{
-
+    
     }
 
     // Está clicando
     private void OnMouseDrag()
     {
         line.enabled = true;
-        currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
-        line.SetPosition(0, this.transform.position + currentMousePosition);
-        line.SetPosition(1, this.transform.position + currentMousePosition*-1);
+        currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+        line.SetPosition(0, player.transform.position + currentMousePosition);
+        line.SetPosition(1, player.transform.position + currentMousePosition*-1);
     }
 
     // Soltou o clique
