@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClickImpulse : MonoBehaviour {
 
-    [Tooltip("forca que é al=plicada a qualquer vetor de pulo")]
+    [Tooltip("forca que é aplicada a qualquer vetor de pulo")]
     public float ImpulseForce = 1.0f;
 
     private Rigidbody2D rb;
@@ -17,7 +17,7 @@ public class ClickImpulse : MonoBehaviour {
 	// Faz o pulo do jogador
 	public void CreateImpulse(Vector3 mousePosition){
 
-        rb.AddForce((mousePosition - transform.position) * ImpulseForce);
+        rb.AddForce((mousePosition - this.transform.position) * ImpulseForce);
 
     }
 
