@@ -18,7 +18,7 @@ public class TriggerJumpAgain : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
+        ctrl.isAbleToJump = true;
     }
 
 	private void OnTriggerExit2D(Collider2D collision)

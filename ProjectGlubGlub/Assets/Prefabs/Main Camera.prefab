@@ -100,4 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de9bdecb667e94c5da0e984d92ff314d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow: {fileID: 0}
   isAbleToJump: 1

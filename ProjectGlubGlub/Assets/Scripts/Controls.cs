@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour {
 
+    public GameObject Arrow;
+
     private GameObject player;
     private ClickImpulse clickImpulsePlayerComponent;
     private LineRenderer line;
 
     private Vector3 currentMousePosition = Vector3.zero;
+    private Vector3 initialMousePosition = Vector3.zero;
 
     [HideInInspector]
     public bool isAbleToJump = true;
 
 	private void Update()
 	{
+        if(Input.GetMouseButtonDown(0)){
+            OnMouseDown();
+        }
+        
         if(Input.GetMouseButton(0)){
             OnMouseDrag();
         } 
@@ -44,7 +51,7 @@ public class Controls : MonoBehaviour {
     // Clicou
 	private void OnMouseDown()
 	{
-    
+        initialMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
     }
 
     // Está clicando
@@ -54,8 +61,11 @@ public class Controls : MonoBehaviour {
         {
             line.enabled = true;
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
-            line.SetPosition(0, player.transform.position + currentMousePosition);
-            line.SetPosition(1, player.transform.position + currentMousePosition * -1);
+            //Debug.Log(initialMousePosition - currentMousePosition);
+            line.SetPosition(0, player.transform.position + (initialMousePosition - currentMousePosition));
+            line.SetPosition(1, player.transform.position + (initialMousePosition - currentMousePosition) * -1);
+            Arrow.SetActive(true);
+            Arrow.transform.position = line.GetPosition(0);
         }
     }
 
@@ -63,9 +73,11 @@ public class Controls : MonoBehaviour {
 	private void OnMouseUp()
 	{
         line.enabled = false;
-        clickImpulsePlayerComponent.CreateImpulse(currentMousePosition);
+        clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
         currentMousePosition = Vector3.zero;
+        initialMousePosition = Vector3.zero;
         isAbleToJump = false;
+        Arrow.SetActive(false);
 	}
 
 }
