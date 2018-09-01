@@ -10,6 +10,8 @@ public class RespawnPlayer : MonoBehaviour {
 	{
         if(collision.tag == "Player"){
             collision.transform.position = RespawnPosition;
+            Rigidbody2D playerRb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+            playerRb.velocity = Vector2.zero;
         }
 	}
 

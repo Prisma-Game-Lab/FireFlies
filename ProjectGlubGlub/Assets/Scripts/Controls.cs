@@ -18,8 +18,8 @@ public class Controls : MonoBehaviour {
     private int perfectCounter;
 
     [HideInInspector]
-    public bool isAbleToJump = true;
-    public bool isPerfectJump = true;
+    public bool isAbleToJump = false;
+    public bool isPerfectJump = false;
 
 	private void Update()
 	{
@@ -65,11 +65,10 @@ public class Controls : MonoBehaviour {
     {
         if (isAbleToJump)
         {
-            // faz coisas perfeitas
             if(isPerfectJump){
-                
+                perfectCounter += 1;
             } else {
-                
+                perfectCounter = 0;
             }
             time.slowTime();
             line.enabled = true;
@@ -86,7 +85,9 @@ public class Controls : MonoBehaviour {
 	{
         time.normalTime();
         line.enabled = false;
-        clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
+        if(isAbleToJump){
+            clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition, perfectCounter);
+        }
         currentMousePosition = Vector3.zero;
         initialMousePosition = Vector3.zero;
         isAbleToJump = false;

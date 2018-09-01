@@ -19,7 +19,7 @@ public class ClickImpulse : MonoBehaviour {
 	}
 
 	// Faz o pulo do jogador
-	public void CreateImpulse(Vector3 mousePosition){
+	public void CreateImpulse(Vector3 mousePosition, int perfectCounter){
 
         Vector3 impulse = new Vector3(mousePosition.x, mousePosition.y, 0) * ImpulseForce;
 
@@ -31,6 +31,6 @@ public class ClickImpulse : MonoBehaviour {
             impulse = new Vector3(impulse.x, 0, 0) + Vector3.up * MaxImpulseForceVertical;
         }
 
-        rb.AddForce(impulse);
+        rb.AddForce(impulse );
     }
 }
