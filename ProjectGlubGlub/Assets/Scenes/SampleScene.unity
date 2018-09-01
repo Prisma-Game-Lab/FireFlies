@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de9bdecb667e94c5da0e984d92ff314d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAbleToJump: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -593,6 +594,16 @@ Prefab:
     - target: {fileID: 4075287475184146, guid: 69a2801da926545a2ae9344e7026ee96, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114554337205219804, guid: 69a2801da926545a2ae9344e7026ee96,
+        type: 2}
+      propertyPath: MaxImpulseForceVertical
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114554337205219804, guid: 69a2801da926545a2ae9344e7026ee96,
+        type: 2}
+      propertyPath: MaxImpulseForceHorizontal
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114194412655520480, guid: 69a2801da926545a2ae9344e7026ee96, type: 2}

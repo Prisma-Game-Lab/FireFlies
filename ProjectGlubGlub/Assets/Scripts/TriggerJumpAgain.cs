@@ -8,12 +8,12 @@ public class TriggerJumpAgain : MonoBehaviour {
 
 	private void OnEnable()
 	{
-        ctrl = this.GetComponent<Controls>();
+        ctrl = GameObject.Find("Main Camera").GetComponent<Controls>();
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		
+        ctrl.isAbleToJump = true;
 	}
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -23,7 +23,7 @@ public class TriggerJumpAgain : MonoBehaviour {
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		
+        ctrl.isAbleToJump = false;
 	}
 
 }
