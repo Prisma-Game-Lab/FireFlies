@@ -63,6 +63,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ClickImpulse.cs" />
     <Compile Include="Assets\Scripts\Controls.cs" />
+    <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\LavaRising.cs" />
+    <Compile Include="Assets\Scripts\RespawnPlayer.cs" />
+    <Compile Include="Assets\Scripts\TimeManager.cs" />
     <Compile Include="Assets\Scripts\TriggerJumpAgain.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/michellebeadle/Desktop/GMTKJam_ZubZub/ProjetGlubGlub/ProjectGlubGlub/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

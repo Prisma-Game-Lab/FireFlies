@@ -23,8 +23,6 @@ public class ClickImpulse : MonoBehaviour {
 
         Vector3 impulse = new Vector3(mousePosition.x, mousePosition.y, 0) * ImpulseForce;
 
-        Debug.Log(impulse);
-
         if (MaxImpulseForceHorizontal != 0 && (impulse.x > MaxImpulseForceHorizontal)){
             Debug.Log("Limite Horizontal Maximo");
             impulse = new Vector3(0, impulse.y, 0) + Vector3.right * MaxImpulseForceHorizontal;
