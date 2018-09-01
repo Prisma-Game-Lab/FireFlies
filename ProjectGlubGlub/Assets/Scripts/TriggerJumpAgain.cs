@@ -42,10 +42,7 @@ public class TriggerJumpAgain : MonoBehaviour {
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-        if (collision.gameObject.layer == 8)
-        {
-            ctrl.isAbleToJump = false;
-        }
+      
 	}
 
 }
