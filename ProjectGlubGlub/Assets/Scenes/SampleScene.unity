@@ -773,16 +773,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114554337205219804, guid: 69a2801da926545a2ae9344e7026ee96,
-        type: 2}
-      propertyPath: MaxImpulseForceVertical
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 114554337205219804, guid: 69a2801da926545a2ae9344e7026ee96,
-        type: 2}
-      propertyPath: MaxImpulseForceHorizontal
-      value: 400
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a2801da926545a2ae9344e7026ee96, type: 2}
   m_IsPrefabAsset: 0
