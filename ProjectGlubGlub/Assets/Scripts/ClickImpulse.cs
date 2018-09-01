@@ -17,22 +17,6 @@ public class ClickImpulse : MonoBehaviour {
 	// Faz o pulo do jogador
 	public void CreateImpulse(Vector3 mousePosition){
 
-        Debug.Log(mousePosition);
         rb.AddForce(new Vector3(mousePosition.x*-1 , mousePosition.y*-1 , mousePosition.z) * ImpulseForce);
-
     }
-
-
-
-
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -23,14 +23,6 @@ public class Controls : MonoBehaviour {
         line.widthMultiplier = 0.2f;
         line.positionCount = 2;
 
-        // A simple 2 color gradient with a fixed alpha of 1.0f.
-        float alpha = 1.0f;
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(Color.cyan, 0.0f), new GradientColorKey(Color.green, 1.0f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
-            );
-        line.colorGradient = gradient;
     } 
 
     // Clicou

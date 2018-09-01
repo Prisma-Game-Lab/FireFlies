@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 510420759}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plataform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 816840891}
   - component: {fileID: 816840893}
   - component: {fileID: 816840892}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 971110246}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: '--------- Enviroment ----------'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4075287475184146, guid: 69a2801da926545a2ae9344e7026ee96,
     type: 2}
-  m_PrefabInternal: {fileID: 1448185421}
+  m_PrefabInternal: {fileID: 1644678661}
 --- !u!1 &1150961045
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 1150961046}
   - component: {fileID: 1150961048}
   - component: {fileID: 1150961047}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1448185421
+--- !u!1001 &1644678661
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
