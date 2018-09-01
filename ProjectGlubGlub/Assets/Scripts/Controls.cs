@@ -52,7 +52,7 @@ public class Controls : MonoBehaviour {
 	private void OnMouseUp()
 	{
         line.enabled = false;
-        clickImpulsePlayerComponent.CreateImpulse(Input.mousePosition);
+        clickImpulsePlayerComponent.CreateImpulse(currentMousePosition);
         currentMousePosition = Vector3.zero;
 	}
 
