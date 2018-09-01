@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4420905780504018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
