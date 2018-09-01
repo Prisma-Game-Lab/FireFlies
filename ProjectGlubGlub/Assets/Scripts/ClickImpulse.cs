@@ -21,16 +21,16 @@ public class ClickImpulse : MonoBehaviour {
 	// Faz o pulo do jogador
 	public void CreateImpulse(Vector3 mousePosition){
 
-        Vector3 impulse = new Vector3(mousePosition.x * -1, mousePosition.y * -1, 0) * ImpulseForce;
+        Vector3 impulse = new Vector3(mousePosition.x, mousePosition.y, 0) * ImpulseForce;
 
         if (MaxImpulseForceHorizontal != 0 && (impulse.x > MaxImpulseForceHorizontal)){
             Debug.Log("Limite Horizontal Maximo");
-            impulse = new Vector3(-1, mousePosition.y * -1, 0) * MaxImpulseForceHorizontal;
+            impulse = new Vector3(0, impulse.y, 0) + Vector3.right * MaxImpulseForceHorizontal;
         }
 
         if (MaxImpulseForceVertical != 0 && (impulse.y > MaxImpulseForceVertical)) {
             Debug.Log("Limite Vertical Maximo");
-            impulse = new Vector3(impulse.x, -1, 0) * MaxImpulseForceHorizontal;
+            impulse = new Vector3(impulse.x, 0, 0) + Vector3.up * MaxImpulseForceHorizontal;
         }
 
         rb.AddForce(impulse);

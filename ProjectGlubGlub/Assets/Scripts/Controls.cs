@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour {
 
+    public GameObject Arrow;
+    public GameObject Main;
+
     private GameObject player;
     private ClickImpulse clickImpulsePlayerComponent;
     private LineRenderer line;
+    private TimeManager time;
 
     private Vector3 currentMousePosition = Vector3.zero;
+    private Vector3 initialMousePosition = Vector3.zero;
 
     [HideInInspector]
     public bool isAbleToJump = true;
+    public bool isPerfectJump = true;
 
 	private void Update()
 	{
+        if(Input.GetMouseButtonDown(0)){
+            OnMouseDown();
+        }
+        
         if(Input.GetMouseButton(0)){
             OnMouseDrag();
         } 
@@ -26,6 +36,7 @@ public class Controls : MonoBehaviour {
 
 	private void OnEnable()
 	{
+        time = Main.GetComponent<TimeManager>();
         player = GameObject.Find("Player");
         line = player.GetComponent<LineRenderer>();
         clickImpulsePlayerComponent = player.GetComponent<ClickImpulse>();
@@ -44,7 +55,7 @@ public class Controls : MonoBehaviour {
     // Clicou
 	private void OnMouseDown()
 	{
-    
+        initialMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
     }
 
     // Está clicando
@@ -52,20 +63,29 @@ public class Controls : MonoBehaviour {
     {
         if (isAbleToJump)
         {
+            // faz coisas perfeitas
+            if(isPerfectJump)
+            time.slowTime();
             line.enabled = true;
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
-            line.SetPosition(0, player.transform.position + currentMousePosition);
-            line.SetPosition(1, player.transform.position + currentMousePosition * -1);
+            line.SetPosition(0, player.transform.position + (initialMousePosition - currentMousePosition));
+            line.SetPosition(1, player.transform.position + (initialMousePosition - currentMousePosition) * -1);
+            Arrow.SetActive(true);
+            Arrow.transform.position = line.GetPosition(0);
         }
     }
 
     // Soltou o clique
 	private void OnMouseUp()
 	{
+        time.normalTime();
         line.enabled = false;
-        clickImpulsePlayerComponent.CreateImpulse(currentMousePosition);
+        clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
         currentMousePosition = Vector3.zero;
+        initialMousePosition = Vector3.zero;
         isAbleToJump = false;
+        isPerfectJump = false;
+        Arrow.SetActive(false);
 	}
 
 }
