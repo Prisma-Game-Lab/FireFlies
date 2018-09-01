@@ -18,8 +18,8 @@ public class Controls : MonoBehaviour {
     private int perfectCounter;
 
     [HideInInspector]
-    public bool isAbleToJump = false;
-    public bool isPerfectJump = false;
+    public bool isAbleToJump = true;
+    public bool isPerfectJump = true;
 
 	private void Update()
 	{
@@ -65,11 +65,6 @@ public class Controls : MonoBehaviour {
     {
         if (isAbleToJump)
         {
-            if(isPerfectJump){
-                perfectCounter += 1;
-            } else {
-                perfectCounter = 0;
-            }
             time.slowTime();
             line.enabled = true;
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
@@ -83,16 +78,17 @@ public class Controls : MonoBehaviour {
     // Soltou o clique
 	private void OnMouseUp()
 	{
-        time.normalTime();
-        line.enabled = false;
-        if(isAbleToJump){
-            clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition, perfectCounter);
+        if (isAbleToJump)
+        {
+            time.normalTime();
+            line.enabled = false;
+            clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition, isPerfectJump);
+            currentMousePosition = Vector3.zero;
+            initialMousePosition = Vector3.zero;
+            isAbleToJump = false;
+            isPerfectJump = false;
+            Arrow.SetActive(false);
         }
-        currentMousePosition = Vector3.zero;
-        initialMousePosition = Vector3.zero;
-        isAbleToJump = false;
-        isPerfectJump = false;
-        Arrow.SetActive(false);
 	}
 
 }

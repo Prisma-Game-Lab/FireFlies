@@ -30,8 +30,7 @@ public class TriggerJumpAgain : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-        Debug.Log("qualfoi");
-        if (collision.tag == "Plataform"){
+        if (collision.gameObject.layer == 8){
             ctrl.isAbleToJump = true;
         }
 	}
@@ -43,7 +42,7 @@ public class TriggerJumpAgain : MonoBehaviour {
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-        if (collision.tag == "Plataform")
+        if (collision.gameObject.layer == 8)
         {
             ctrl.isAbleToJump = false;
         }
