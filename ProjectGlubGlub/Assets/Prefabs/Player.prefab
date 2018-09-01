@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee635f415a244558b2dc2a15ca357ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImpulseForce: 3
+  ImpulseForce: 150
 --- !u!120 &120112412672481534
 LineRenderer:
   m_ObjectHideFlags: 1

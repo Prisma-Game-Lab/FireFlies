@@ -18,9 +18,7 @@ public class ClickImpulse : MonoBehaviour {
 	public void CreateImpulse(Vector3 mousePosition){
 
         Debug.Log(mousePosition);
-        Debug.Log(this.transform.position);
-        Debug.Log(mousePosition - this.transform.position);
-        rb.AddForce(((mousePosition - this.transform.position) * ImpulseForce));
+        rb.AddForce(new Vector3(mousePosition.x*-1 , mousePosition.y*-1 , mousePosition.z) * ImpulseForce);
 
     }
 
