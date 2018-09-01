@@ -58,6 +58,7 @@ public class Controls : MonoBehaviour {
 	private void OnMouseDown()
 	{
         initialMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+        GameObject.Find("Player").GetComponent<Rigidbody2D>().AddForce(Vector3.zero);
     }
 
     // Está clicando
