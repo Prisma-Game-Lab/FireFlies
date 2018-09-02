@@ -9,7 +9,7 @@ public class SpikeDeath : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-        GameObject.Find("Lava").getCompontent<RespawnPlayer>().RespawnaPlayer(collision.transform);
+        GameObject.Find("Lava").GetComponent<RespawnPlayer>().RespawnaPlayer(collision.transform, false);
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)
