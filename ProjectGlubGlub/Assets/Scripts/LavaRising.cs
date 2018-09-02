@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class LavaRising : MonoBehaviour {
 
-    public float risePercent = 0.00001f;
+    public float risePercent = 0.1f;
     public float secondsforRise = 1.0f; 
-
 
 	// Use this for initialization
 	void Start () {

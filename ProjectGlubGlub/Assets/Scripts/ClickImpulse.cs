@@ -29,14 +29,35 @@ public class ClickImpulse : MonoBehaviour {
         bool verticalFlag = false, horizontalFlag = false;
         currentImpulse = new Vector3(mousePosition.x, mousePosition.y, 0) * ImpulseForce;
 
-        if (MaxImpulseForceHorizontal != 0 && (currentImpulse.x > MaxImpulseForceHorizontal)){
-            currentImpulse = new Vector3(0, currentImpulse.y, 0) + Vector3.right * MaxImpulseForceHorizontal;
-            horizontalFlag = true;
+        if(currentImpulse.x > 0) {    //Jogou pra direita
+
+            if(MaxImpulseForceHorizontal != 0 && (currentImpulse.x > MaxImpulseForceHorizontal)){
+                currentImpulse = new Vector3(0, currentImpulse.y, 0) + Vector3.right * MaxImpulseForceHorizontal;
+                horizontalFlag = true;
+            }
+            
+        } else {    //Jogou pra esquerda
+
+            if (MaxImpulseForceHorizontal != 0 && (currentImpulse.x < MaxImpulseForceHorizontal*-1)){
+                currentImpulse = new Vector3(0, currentImpulse.y, 0) + Vector3.right * MaxImpulseForceHorizontal;
+                horizontalFlag = true;
+            }
         }
 
-        if (MaxImpulseForceVertical != 0 && (currentImpulse.y > MaxImpulseForceVertical)){
-            currentImpulse = new Vector3(currentImpulse.x, 0, 0) + Vector3.up * MaxImpulseForceVertical;
-            verticalFlag = true;
+        if (currentImpulse.y > 0) {    //Jogou pra cima
+
+            if (MaxImpulseForceVertical != 0 && (currentImpulse.y > MaxImpulseForceVertical)){
+                currentImpulse = new Vector3(currentImpulse.x, 0, 0) + Vector3.up * MaxImpulseForceVertical;
+                verticalFlag = true;
+            }
+
+        }
+        else {   //Jogou pra baixo 
+            if (MaxImpulseForceVertical != 0 && (currentImpulse.y < MaxImpulseForceVertical*-1)) {
+                currentImpulse = new Vector3(currentImpulse.x, 0, 0) + Vector3.up * MaxImpulseForceVertical;
+                verticalFlag = true;
+            }
+
         }
 
         if (verticalFlag || horizontalFlag)
