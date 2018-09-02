@@ -69,6 +69,8 @@ public class Controls : MonoBehaviour {
             line.enabled = true;
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
             bool stopLine = clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
+            // quando clica tem que saber qual o x e y máximo e mínimo que se pode ir
+
             line.SetPosition(0, player.transform.position + (initialMousePosition - currentMousePosition));
             line.SetPosition(1, player.transform.position + (initialMousePosition - currentMousePosition) * -1);
             Arrow.SetActive(true);
