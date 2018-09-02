@@ -17,6 +17,9 @@ public class Controls : MonoBehaviour {
 
     private Vector3 impulseVector = Vector3.zero;
 
+    public Animator cameraAnimator;
+    public Animator playerAnimator;
+
     [HideInInspector]
     public bool isAbleToJump = true;
     [HideInInspector]
@@ -52,7 +55,6 @@ public class Controls : MonoBehaviour {
 
         // line
         line.material = new Material(Shader.Find("Particles/Additive"));
-        line.widthMultiplier = 0.2f;
         line.positionCount = 2;
 
     } 
@@ -60,6 +62,8 @@ public class Controls : MonoBehaviour {
     // Clicou
 	private void OnMouseDown()
 	{
+        playerAnimator.SetBool("charging", true);
+        cameraAnimator.SetBool("Aiming", true);
         initialMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
     }
 
@@ -106,6 +110,8 @@ public class Controls : MonoBehaviour {
             impulseVector = Vector3.zero;
             isPerfectJump = false;
             Arrow.SetActive(false);
+            playerAnimator.SetBool("charging", false);
+            cameraAnimator.SetBool("Aiming", false);
         }
 	}
 
