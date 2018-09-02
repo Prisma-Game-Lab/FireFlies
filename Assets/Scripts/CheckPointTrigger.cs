@@ -8,10 +8,14 @@ public class CheckPointTrigger : MonoBehaviour {
     private RespawnPlayer respawnPlayerComponent;
     private GameObject lava;
 
+    public AudioClip collectSound;
+    private AudioSource source;
+
 	private void OnEnable()
 	{
         lava = GameObject.Find("Lava");
         respawnPlayerComponent = lava.GetComponent<RespawnPlayer>();
+        source = GetComponent<AudioSource>();
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -19,6 +23,7 @@ public class CheckPointTrigger : MonoBehaviour {
         if(collision.tag == "Player"){
             respawnPlayerComponent.RespawnPosition = this.transform.position;
             this.gameObject.SetActive(false);
+			source.PlayOneShot(collectSound);
         }
 	}
 
