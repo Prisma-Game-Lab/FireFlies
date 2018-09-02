@@ -1,14 +1,15 @@
 ﻿<Properties StartupConfiguration="{EDFAA0D2-D8C7-F14D-49C3-763A47083393}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LavaRising.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CheckPointTrigger.cs">
     <Files>
-      <File FileName="Assets/Scripts/ClickImpulse.cs" Line="15" Column="50" />
-      <File FileName="Assets/Scripts/Controls.cs" Line="86" Column="90" />
+      <File FileName="Assets/Scripts/ClickImpulse.cs" Line="57" Column="110" />
+      <File FileName="Assets/Scripts/Controls.cs" Line="86" Column="1" />
       <File FileName="Assets/Scripts/TriggerJumpAgain.cs" Line="45" Column="7" />
       <File FileName="Assets/Scripts/TimeManager.cs" Line="10" Column="26" />
       <File FileName="Assets/Scripts/FollowPlayer.cs" Line="35" Column="105" />
       <File FileName="Assets/Scripts/RespawnPlayer.cs" Line="7" Column="19" />
-      <File FileName="Assets/Scripts/LavaRising.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LavaRising.cs" Line="7" Column="34" />
+      <File FileName="Assets/Scripts/CheckPointTrigger.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

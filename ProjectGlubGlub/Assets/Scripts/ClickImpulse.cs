@@ -39,7 +39,7 @@ public class ClickImpulse : MonoBehaviour {
         } else {    //Jogou pra esquerda
 
             if (MaxImpulseForceHorizontal != 0 && (currentImpulse.x < MaxImpulseForceHorizontal*-1)){
-                currentImpulse = new Vector3(0, currentImpulse.y, 0) + Vector3.right * MaxImpulseForceHorizontal*-1;
+                currentImpulse = new Vector3(0, currentImpulse.y, 0) + Vector3.left * MaxImpulseForceHorizontal;
                 horizontalFlag = true;
             }
         }
@@ -54,7 +54,7 @@ public class ClickImpulse : MonoBehaviour {
         }
         else {   //Jogou pra baixo 
             if (MaxImpulseForceVertical != 0 && (currentImpulse.y < MaxImpulseForceVertical*-1)) {
-                currentImpulse = new Vector3(currentImpulse.x, 0, 0) + Vector3.up * MaxImpulseForceVertical*-1;
+                currentImpulse = new Vector3(currentImpulse.x, 0, 0) + Vector3.down * MaxImpulseForceVertical;
                 verticalFlag = true;
             }
 
