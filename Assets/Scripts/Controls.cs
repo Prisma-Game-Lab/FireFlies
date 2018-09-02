@@ -17,6 +17,13 @@ public class Controls : MonoBehaviour {
 
     private Vector3 impulseVector = Vector3.zero;
 
+    public AudioClip shootSound;
+    public AudioClip aimSound;
+
+    private AudioSource source;
+    private float volLowRange = .5f;
+    private float volHighRange = 1.0f;
+
     [HideInInspector]
     public bool isAbleToJump = true;
     [HideInInspector]
@@ -41,6 +48,7 @@ public class Controls : MonoBehaviour {
 
 	private void OnEnable()
 	{
+        source = GetComponent<AudioSource>();
         time = Main.GetComponent<TimeManager>();
         player = GameObject.Find("Player");
         line = player.GetComponent<LineRenderer>();
@@ -73,6 +81,9 @@ public class Controls : MonoBehaviour {
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
             clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
 
+            float vol = Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(aimSound, vol);
+
             if(Vector3.Distance(initialMousePosition, currentMousePosition) <= MaxImpulseRadius){
                 line.SetPosition(0, player.transform.position + (initialMousePosition - currentMousePosition));
                 line.SetPosition(1, player.transform.position + (initialMousePosition - currentMousePosition) * -1);
@@ -100,6 +111,8 @@ public class Controls : MonoBehaviour {
             GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             clickImpulsePlayerComponent.CreateImpulse(impulseVector);
             clickImpulsePlayerComponent.Jump(isPerfectJump);
+            float vol = Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(shootSound, vol);
             isAbleToJump = false;
             currentMousePosition = Vector3.zero;
             initialMousePosition = Vector3.zero;
