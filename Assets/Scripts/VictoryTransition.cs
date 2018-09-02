@@ -11,7 +11,6 @@ public class VictoryTransition : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
         vict.gameObject.SetActive(true); 
-       // gm.Victory();
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)

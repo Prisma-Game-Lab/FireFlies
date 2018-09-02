@@ -39,7 +39,8 @@ public class RespawnPlayer : MonoBehaviour {
             GameObject.Find("Camera").GetComponent<FollowPlayer>().updateCenterCam(RespawnPosition.y + 5);
 
             if (isLava){
-                this.GetComponent<LavaRising>().isNotRespawn = false;
+                
+                GameObject.Find("Lava").GetComponent<LavaRising>().isNotRespawn = false;
                 this.transform.position = new Vector3(this.transform.position.x, RespawnPosition.y - lavaRespawn, 0);
                 this.GetComponent<LavaRising>().StartLavaRising();
             } else {
