@@ -15,11 +15,9 @@ public class RespawnPlayer : MonoBehaviour {
             GameObject player = GameObject.Find("Player");
             Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
             playerRb.velocity = Vector2.zero;
-            Debug.Log(player.transform.position.y);
             Vector3 realLavaPos = Camera.main.ScreenToWorldPoint(this.transform.position);
             Vector3 realRespawnPos = Camera.main.ScreenToWorldPoint(RespawnPosition);
-            Debug.Log(realRespawnPos);
-            this.transform.position = new Vector3(realLavaPos.x, realRespawnPos.y - lavaRespawn, realLavaPos.x);
+            this.transform.position = new Vector3(this.transform.position.x, realRespawnPos.y - lavaRespawn, 0);
         }
 	}
 
