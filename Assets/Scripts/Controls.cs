@@ -98,6 +98,7 @@ public class Controls : MonoBehaviour {
 
             Arrow.SetActive(true);
             Arrow.transform.position = line.GetPosition(0);
+            //Arrow.transform.position = Quaternion.Euler(impulseVector.normalized);
         }
     }
 
