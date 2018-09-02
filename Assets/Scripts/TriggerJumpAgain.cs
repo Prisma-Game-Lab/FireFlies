@@ -34,6 +34,8 @@ public class TriggerJumpAgain : MonoBehaviour {
         Debug.Log(this.name);
         if (collision.gameObject.layer == 8){
             ctrl.isAbleToJump = true;
+	    ctrl.feedbackParticles.SetActive(false);
+	    ctrl.feedbackParticles.SetActive(true);
         }
 	}
 
