@@ -35,7 +35,6 @@ public class LavaRising : MonoBehaviour {
     IEnumerator riseLava(){
 
         while(isNotRespawn){
-            Debug.Log("this is it");
             yield return new WaitForSeconds(secondsforRise);
             this.transform.position += new Vector3(0,risePercent,0);
         }
