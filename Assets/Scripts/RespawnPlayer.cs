@@ -11,6 +11,7 @@ public class RespawnPlayer : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
         if(collision.tag == "Player"){
+            this.GetComponent<LavaRising>().isNotRespawn = false;
             collision.transform.position = RespawnPosition;
             GameObject player = GameObject.Find("Player");
             Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
@@ -18,6 +19,7 @@ public class RespawnPlayer : MonoBehaviour {
             Vector3 realLavaPos = Camera.main.ScreenToWorldPoint(this.transform.position);
             Vector3 realRespawnPos = Camera.main.ScreenToWorldPoint(RespawnPosition);
             this.transform.position = new Vector3(this.transform.position.x, realRespawnPos.y - lavaRespawn, 0);
+            this.GetComponent<LavaRising>().StartLavaRising();
         }
 	}
 
