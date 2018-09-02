@@ -15,6 +15,8 @@ public class Controls : MonoBehaviour {
     private Vector3 currentMousePosition = Vector3.zero;
     private Vector3 initialMousePosition = Vector3.zero;
 
+    private Vector3 impulseVector = Vector3.zero;
+
     [HideInInspector]
     public bool isAbleToJump = true;
     [HideInInspector]
@@ -74,12 +76,13 @@ public class Controls : MonoBehaviour {
             if(Vector3.Distance(initialMousePosition, currentMousePosition) <= MaxImpulseRadius){
                 line.SetPosition(0, player.transform.position + (initialMousePosition - currentMousePosition));
                 line.SetPosition(1, player.transform.position + (initialMousePosition - currentMousePosition) * -1);
+                impulseVector = initialMousePosition - currentMousePosition;
             } else {
 
                 Vector3 outsideVector = (initialMousePosition - currentMousePosition).normalized * MaxImpulseRadius;
-
                 line.SetPosition(0, player.transform.position + outsideVector);
                 line.SetPosition(1, player.transform.position + outsideVector * -1);
+                impulseVector = outsideVector;
             }
 
             Arrow.SetActive(true);
@@ -95,11 +98,12 @@ public class Controls : MonoBehaviour {
             time.normalTime();
             line.enabled = false;
             GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
+            clickImpulsePlayerComponent.CreateImpulse(impulseVector);
             clickImpulsePlayerComponent.Jump(isPerfectJump);
             isAbleToJump = false;
             currentMousePosition = Vector3.zero;
             initialMousePosition = Vector3.zero;
+            impulseVector = Vector3.zero;
             isPerfectJump = false;
             Arrow.SetActive(false);
         }
