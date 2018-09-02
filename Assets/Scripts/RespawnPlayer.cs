@@ -8,8 +8,6 @@ public class RespawnPlayer : MonoBehaviour {
     public Vector3 RespawnPosition;
     public float lavaRespawn = 50;
 
-    public int numLives = 3;
-
 	private void OnEnable()
 	{
         RespawnPosition = GameObject.Find("Player").transform.position;
@@ -38,23 +36,17 @@ public class RespawnPlayer : MonoBehaviour {
             GameObject player = GameObject.Find("Player");
             Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
             playerRb.velocity = Vector2.zero;
-            Camera.main.GetComponent<FollowPlayer>().updateCenterCam(RespawnPosition.y + 5);
+            GameObject.Find("Camera").GetComponent<FollowPlayer>().updateCenterCam(RespawnPosition.y + 5);
 
-            if (isLava){
-                this.GetComponent<LavaRising>().isNotRespawn = false;
-                this.transform.position = new Vector3(this.transform.position.x, RespawnPosition.y - lavaRespawn, 0);
-                this.GetComponent<LavaRising>().StartLavaRising();
-            } else {
+            //if (isLava){
+              //  this.GetComponent<LavaRising>().isNotRespawn = false;
+              //  this.transform.position = new Vector3(this.transform.position.x, RespawnPosition.y - lavaRespawn, 0);
+              //  this.GetComponent<LavaRising>().StartLavaRising();
+            //} else {
                 GameObject.Find("Lava").GetComponent<LavaRising>().isNotRespawn = false;
                 GameObject.Find("Lava").transform.position = new Vector3(this.transform.position.x, RespawnPosition.y - lavaRespawn, 0);
                 GameObject.Find("Lava").GetComponent<LavaRising>().StartLavaRising();
-            }
-
-            numLives -= 1;
-
-            if(numLives == 0){
-                // gm   
-            }
+            //}
         }
     }
 }
