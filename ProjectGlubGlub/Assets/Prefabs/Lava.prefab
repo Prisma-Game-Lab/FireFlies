@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212456740172162282}
   - component: {fileID: 61310536958779562}
   - component: {fileID: 114641448087388510}
+  - component: {fileID: 114442122531749492}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Untagged
@@ -35,9 +36,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1162219505317504}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.971, y: -3.498, z: 0}
-  m_LocalScale: {x: 23.228416, y: 3.075389, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.307, y: -9.286, z: 0}
+  m_LocalScale: {x: 2.4440947, y: 9.792, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -67,6 +68,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114442122531749492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162219505317504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe934d395c5543459d0c190b15abd46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  risePercent: 0.1
+  secondsforRise: 0.5
 --- !u!114 &114641448087388510
 MonoBehaviour:
   m_ObjectHideFlags: 1
