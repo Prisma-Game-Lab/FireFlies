@@ -69,6 +69,11 @@ public class Controls : MonoBehaviour {
 	private void OnMouseDown()
 	{
         initialMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+        if (isAbleToJump)
+        {
+        	float vol = Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(aimSound, vol);
+        }
     }
 
     // Está clicando
@@ -80,9 +85,6 @@ public class Controls : MonoBehaviour {
             line.enabled = true;
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
             clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
-
-            float vol = Random.Range(volLowRange, volHighRange);
-            source.PlayOneShot(aimSound, vol);
 
             if(Vector3.Distance(initialMousePosition, currentMousePosition) <= MaxImpulseRadius){
                 line.SetPosition(0, player.transform.position + (initialMousePosition - currentMousePosition));
