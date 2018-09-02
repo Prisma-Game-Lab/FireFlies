@@ -10,15 +10,8 @@ public class RespawnPlayer : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-        if(collision.tag == "Player"){
-            collision.transform.position = RespawnPosition;
-            GameObject player = GameObject.Find("Player");
-            Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
-            playerRb.velocity = Vector2.zero;
-            Vector3 realLavaPos = Camera.main.ScreenToWorldPoint(this.transform.position);
-            Vector3 realRespawnPos = Camera.main.ScreenToWorldPoint(RespawnPosition);
-            this.transform.position = new Vector3(this.transform.position.x, realRespawnPos.y - lavaRespawn, 0);
-        }
+
+        RespawnaPlayer(collision.transform);
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)
@@ -30,4 +23,17 @@ public class RespawnPlayer : MonoBehaviour {
 	{
 		
 	}
+
+    public void RespawnaPlayer(transform go){
+
+        if(go.tag == "Player"){
+            go.transform.position = RespawnPosition;
+            GameObject player = GameObject.Find("Player");
+            Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+            playerRb.velocity = Vector2.zero;
+            Vector3 realLavaPos = Camera.main.ScreenToWorldPoint(this.transform.position);
+            Vector3 realRespawnPos = Camera.main.ScreenToWorldPoint(RespawnPosition);
+            this.transform.position = new Vector3(this.transform.position.x, realRespawnPos.y - lavaRespawn, 0);
+        }
+    }
 }
