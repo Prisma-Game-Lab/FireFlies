@@ -8018,11 +8018,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4946401420364548, guid: 9651f4b445dc24909af53a40461541e9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.003
+      value: 4.05
       objectReference: {fileID: 0}
     - target: {fileID: 4946401420364548, guid: 9651f4b445dc24909af53a40461541e9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 117.999
+      value: 118.08
       objectReference: {fileID: 0}
     - target: {fileID: 4946401420364548, guid: 9651f4b445dc24909af53a40461541e9, type: 2}
       propertyPath: m_LocalPosition.z
