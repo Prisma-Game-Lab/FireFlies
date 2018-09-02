@@ -2427,7 +2427,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RespawnPosition: {x: -7.16, y: 0, z: 0}
   lavaRespawn: 50
-  numLives: 3
 --- !u!61 &109213333
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13030,7 +13029,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RespawnPosition: {x: -7.16, y: 0, z: 0}
   lavaRespawn: 50
-  numLives: 3
 --- !u!61 &611513893
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17928,7 +17926,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RespawnPosition: {x: -7.16, y: 0, z: 0}
   lavaRespawn: 50
-  numLives: 3
 --- !u!61 &836825050
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23460,7 +23457,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RespawnPosition: {x: -7.16, y: 0, z: 0}
   lavaRespawn: 50
-  numLives: 3
 --- !u!61 &1087837564
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25865,7 +25861,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RespawnPosition: {x: -7.16, y: 0, z: 0}
   lavaRespawn: 50
-  numLives: 3
 --- !u!61 &1230341465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30041,7 +30036,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RespawnPosition: {x: -7.16, y: 0, z: 0}
   lavaRespawn: 50
-  numLives: 3
 --- !u!61 &1417330494
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34031,7 +34025,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RespawnPosition: {x: -7.16, y: 0, z: 0}
   lavaRespawn: 50
-  numLives: 3
 --- !u!61 &1603822594
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35319,6 +35312,14 @@ Prefab:
       propertyPath: playerAnim
       value: 
       objectReference: {fileID: 1784162582}
+    - target: {fileID: 1644102811812766, guid: 9da244b73e0b74e5a81782fc685ecf9d, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187092649604830, guid: 9da244b73e0b74e5a81782fc685ecf9d, type: 2}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9da244b73e0b74e5a81782fc685ecf9d, type: 2}
   m_IsPrefabAsset: 0
@@ -43964,7 +43965,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RespawnPosition: {x: -7.16, y: 0, z: 0}
   lavaRespawn: 50
-  numLives: 3
 --- !u!61 &2110891301
 BoxCollider2D:
   m_ObjectHideFlags: 0
