@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RespawnPlayer : MonoBehaviour {
 
+    [HideInInspector]
     public Vector3 RespawnPosition;
 
 	private void OnTriggerEnter2D(Collider2D collision)
