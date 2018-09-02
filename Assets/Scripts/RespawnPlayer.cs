@@ -41,6 +41,7 @@ public class RespawnPlayer : MonoBehaviour {
                 this.GetComponent<LavaRising>().isNotRespawn = false;
                 this.transform.position = new Vector3(this.transform.position.x, RespawnPosition.y - lavaRespawn, 0);
                 this.GetComponent<LavaRising>().StartLavaRising();
+                Camera.main.GetComponent<FollowPlayer>().updateCenterCam(RespawnPosition.y + 5);
             } 
         }
     }
