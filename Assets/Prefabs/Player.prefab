@@ -366,7 +366,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 986aad5986e23481286f99bb3e499890, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2a6a869c2886d77459fae61427511bd0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -504,8 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ImpulseForce: 300
-  MaxImpulseForceVertical: 650
-  MaxImpulseForceHorizontal: 550
+  PerfectImpulsePercentage: 1.2
 --- !u!114 &114570925865401738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -517,8 +516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88556fd6a24c2844a9e1db6c5acf9609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootSound: {fileID: 8300000, guid: 90129f57ecec41e4dbd9b20099757ddf, type: 3}
-  aimSound: {fileID: 8300000, guid: f3f85682a0f9491478a3bdd816d3e69e, type: 3}
+  shootSound: {fileID: 8300000, guid: dee887831606f4849ab3b19171d5fa84, type: 3}
+  aimSound: {fileID: 8300000, guid: a98ec1b110af02f4eaf49e425d48474e, type: 3}
 --- !u!120 &120112412672481534
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -559,26 +558,35 @@ LineRenderer:
   - {x: -6.2814827, y: 1.3699737, z: 9.972738}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.2
+    widthMultiplier: 1
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: 0.25388634
+        outSlope: 0.25388634
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.5873606
+      - serializedVersion: 3
+        time: 1
+        value: 0.48329306
+        inSlope: -1.6898644
+        outSlope: -1.6898644
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.17951524
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 1, a: 1}
-      key1: {r: 0, g: 1, b: 0, a: 0}
+      key0: {r: 1, g: 0.9454185, b: 0, a: 1}
+      key1: {r: 1, g: 0.09362645, b: 0, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -586,7 +594,7 @@ LineRenderer:
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
+      ctime1: 37394
       ctime2: 0
       ctime3: 0
       ctime4: 0
@@ -14516,7 +14524,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 49c5037a65f57449189684414f8bc3d7, type: 3}
-  m_Color: {r: 0.6037736, g: 0.13385546, b: 0.16070788, a: 0.62352943}
+  m_Color: {r: 0.33962262, g: 0.0240299, b: 0.042815257, a: 0.72156864}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
