@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CheckPointTrigger : MonoBehaviour {
 
+    [HideInInspector]
     private RespawnPlayer respawnPlayerComponent;
     private GameObject lava;
 
