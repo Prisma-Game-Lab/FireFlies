@@ -19,6 +19,7 @@ public class Controls : MonoBehaviour {
 
     public Animator playerAnim;
     public Animator cameraAnim;
+    public GameObject feedbackParticles;
 
     public AudioClip shootSound;
     public AudioClip aimSound;
