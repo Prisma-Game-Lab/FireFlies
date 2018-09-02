@@ -8,6 +8,11 @@ public class RespawnPlayer : MonoBehaviour {
     public Vector3 RespawnPosition;
     public float lavaRespawn = 50;
 
+	private void OnEnable()
+	{
+        RespawnPosition = GameObject.Find("Player").transform.position;
+	}
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 
