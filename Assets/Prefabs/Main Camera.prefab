@@ -105,6 +105,7 @@ MonoBehaviour:
   Main: {fileID: 0}
   isAbleToJump: 1
   isPerfectJump: 1
+  MaxImpulseRadius: 3
 --- !u!114 &114721119376930474
 MonoBehaviour:
   m_ObjectHideFlags: 1
