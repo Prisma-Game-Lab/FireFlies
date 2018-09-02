@@ -69,6 +69,7 @@ public class Controls : MonoBehaviour {
             time.slowTime();
             line.enabled = true;
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+            bool stopLine = clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
             line.SetPosition(0, player.transform.position + (initialMousePosition - currentMousePosition));
             line.SetPosition(1, player.transform.position + (initialMousePosition - currentMousePosition) * -1);
             Arrow.SetActive(true);
@@ -83,7 +84,9 @@ public class Controls : MonoBehaviour {
         {
             time.normalTime();
             line.enabled = false;
-            clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition, isPerfectJump);
+            GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
+            clickImpulsePlayerComponent.Jump(isPerfectJump);
             isAbleToJump = false;
             currentMousePosition = Vector3.zero;
             initialMousePosition = Vector3.zero;
