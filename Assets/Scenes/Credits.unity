@@ -669,7 +669,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 198336cf28a4909429913f8c5b5a16a1, type: 3}
     m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
@@ -680,7 +680,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 1.25
   m_Text: "GAME MAKERS \nTOOL KIT 2018\n\n__\n\n\nARTISTS\nDaniel Oliveira\nRafael
     Assun\xE7\xE3o\n\n\nGAME DESIGNERS\nAndr\xE9 Ruiz\nBernardo Gadelha\nJo\xE3o Victor
     Galindo\n\n\nPROGRAMMERS\nMichelle Santiago\n\n\nSOUND DESIGNER\nBernardo Gadelha\n\n\nSPECIAL
