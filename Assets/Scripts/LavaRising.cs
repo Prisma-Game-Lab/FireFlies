@@ -6,11 +6,14 @@ public class LavaRising : MonoBehaviour {
 
     public float initialDelay = 1.0f;
     public float risePercent = 0.1f;
-    public float secondsforRise = 1.0f; 
+    public float secondsforRise = 1.0f;
+
+    [HideInInspector]
+    public bool isNotRespawn = true;
 
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(riseLava());
+        StartLavaRising();
 	}
 	
 	// Update is called once per frame
@@ -18,11 +21,22 @@ public class LavaRising : MonoBehaviour {
 		
 	}
 
-    IEnumerator riseLava(){
+    public void StartLavaRising(){
+        StartCoroutine(waitStart());
+    }
 
+    IEnumerator waitStart(){
+
+        isNotRespawn = true;
         yield return new WaitForSeconds(initialDelay);
 
-        while(true){
+        StartCoroutine(riseLava());
+    }
+
+    IEnumerator riseLava(){
+
+        while(isNotRespawn){
+            Debug.Log("this is it");
             yield return new WaitForSeconds(secondsforRise);
             this.transform.position += new Vector3(0,risePercent,0);
         }

@@ -6,6 +6,7 @@ public class ClickImpulse : MonoBehaviour {
 
     [Tooltip("forca que é aplicada a qualquer vetor de pulo")]
     public float ImpulseForce = 1.0f;
+    public float PerfectImpulsePercentage = 1.2f;
   
     private Rigidbody2D rb;
     private Vector3 currentImpulse = Vector3.zero;
@@ -24,7 +25,7 @@ public class ClickImpulse : MonoBehaviour {
         
         if (perfect)
         {
-            rb.AddForce(currentImpulse * 1.2f);
+            rb.AddForce(currentImpulse * PerfectImpulsePercentage);
         }
         else
         {
