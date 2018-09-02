@@ -12,6 +12,12 @@ public class ClickImpulse : MonoBehaviour {
     public float MaxImpulseForceHorizontal = 0;
 
     private Rigidbody2D rb;
+    private Vector3 currentImpulse = Vector3.zero;
+
+	private void Update()
+	{
+		
+	}
 
 	private void OnEnable()
 	{
@@ -19,24 +25,35 @@ public class ClickImpulse : MonoBehaviour {
 	}
 
 	// Faz o pulo do jogador
-	public void CreateImpulse(Vector3 mousePosition, bool perfect){
+    public bool CreateImpulse(Vector3 mousePosition){
+        bool verticalFlag = false, horizontalFlag = false;
+        currentImpulse = new Vector3(mousePosition.x, mousePosition.y, 0) * ImpulseForce;
 
-        Vector3 impulse = new Vector3(mousePosition.x, mousePosition.y, 0) * ImpulseForce;
-
-        if (MaxImpulseForceHorizontal != 0 && (impulse.x > MaxImpulseForceHorizontal)){
-            impulse = new Vector3(0, impulse.y, 0) + Vector3.right * MaxImpulseForceHorizontal;
+        if (MaxImpulseForceHorizontal != 0 && (currentImpulse.x > MaxImpulseForceHorizontal)){
+            currentImpulse = new Vector3(0, currentImpulse.y, 0) + Vector3.right * MaxImpulseForceHorizontal;
+            horizontalFlag = true;
         }
 
-        if (MaxImpulseForceVertical != 0 && (impulse.y > MaxImpulseForceVertical)) {
-            impulse = new Vector3(impulse.x, 0, 0) + Vector3.up * MaxImpulseForceVertical;
+        if (MaxImpulseForceVertical != 0 && (currentImpulse.y > MaxImpulseForceVertical)){
+            currentImpulse = new Vector3(currentImpulse.x, 0, 0) + Vector3.up * MaxImpulseForceVertical;
+            verticalFlag = true;
         }
 
+        if (verticalFlag || horizontalFlag)
+            return true;
+
+        return false;
+    }
+
+    public void Jump(bool perfect){
+        
         if (perfect)
         {
-            rb.AddForce(impulse * 1.2f);
+            rb.AddForce(currentImpulse * 1.2f);
         }
-        else {
-            rb.AddForce(impulse);
+        else
+        {
+            rb.AddForce(currentImpulse);
         }
     }
 }
