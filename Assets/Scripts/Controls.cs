@@ -17,6 +17,9 @@ public class Controls : MonoBehaviour {
 
     private Vector3 impulseVector = Vector3.zero;
 
+    public Animator playerAnim;
+    public Animator cameraAnim;
+
     public AudioClip shootSound;
     public AudioClip aimSound;
 
@@ -32,7 +35,9 @@ public class Controls : MonoBehaviour {
     public float MaxImpulseRadius = 3;
 
 	private void LateUpdate()
-	{
+	{   
+        playerAnim.SetBool("canUse",isAbleToJump);
+
         if(Input.GetMouseButtonDown(0)){
             OnMouseDown();
         }
@@ -100,6 +105,7 @@ public class Controls : MonoBehaviour {
 
             Arrow.SetActive(true);
             Arrow.transform.position = line.GetPosition(0);
+            //Arrow.transform.position = Quaternion.Euler(impulseVector.normalized);
         }
     }
 
