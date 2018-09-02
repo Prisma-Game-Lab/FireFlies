@@ -31971,7 +31971,7 @@ Prefab:
     - target: {fileID: 114554337205219804, guid: 69a2801da926545a2ae9344e7026ee96,
         type: 2}
       propertyPath: ImpulseForce
-      value: 300
+      value: 330
       objectReference: {fileID: 0}
     - target: {fileID: 58308193534881648, guid: 69a2801da926545a2ae9344e7026ee96,
         type: 2}
@@ -31993,6 +31993,16 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 2a6a869c2886d77459fae61427511bd0, type: 3}
+    - target: {fileID: 50511545607936572, guid: 69a2801da926545a2ae9344e7026ee96,
+        type: 2}
+      propertyPath: m_Mass
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 50511545607936572, guid: 69a2801da926545a2ae9344e7026ee96,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 2.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a2801da926545a2ae9344e7026ee96, type: 2}
   m_IsPrefabAsset: 0
