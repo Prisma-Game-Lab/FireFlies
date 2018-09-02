@@ -23,7 +23,7 @@ public class CheckPointTrigger : MonoBehaviour {
         if(collision.tag == "Player"){
             respawnPlayerComponent.RespawnPosition = this.transform.position;
             this.gameObject.SetActive(false);
-            source.PlayOneShot(collectSound);
+			source.PlayOneShot(collectSound);
         }
 	}
 
