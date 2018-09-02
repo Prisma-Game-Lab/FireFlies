@@ -1,13 +1,21 @@
 ﻿<Properties StartupConfiguration="{D4E10DC4-B06F-F489-6979-26D3A825D704}|Unit Tests">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FollowPlayer.cs">
     <Files>
       <File FileName="Assets/Scripts/ClickImpulse.cs" Line="53" Column="108" />
       <File FileName="Assets/Scripts/Controls.cs" Line="87" Column="91" />
       <File FileName="Assets/Scripts/TriggerJumpAgain.cs" Line="45" Column="7" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ClickImpulse.cs">
+    <Files>
+      <File FileName="Assets/Scripts/ClickImpulse.cs" Line="31" Column="90" />
+      <File FileName="Assets/Scripts/Controls.cs" Line="18" Column="32" />
+      <File FileName="Assets/Scripts/TriggerJumpAgain.cs" Line="16" Column="1" />
+>>>>>>> c911097517ebcdb4f916d432aca12594ecdbeb9c
       <File FileName="Assets/Scripts/TimeManager.cs" Line="10" Column="26" />
       <File FileName="Assets/Scripts/FollowPlayer.cs" Line="8" Column="30" />
-      <File FileName="Assets/Scripts/RespawnPlayer.cs" Line="13" Column="89" />
+      <File FileName="Assets/Scripts/RespawnPlayer.cs" Line="12" Column="60" />
       <File FileName="Assets/Scripts/LavaRising.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

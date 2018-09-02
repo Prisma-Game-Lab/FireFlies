@@ -29,38 +29,14 @@ public class ClickImpulse : MonoBehaviour {
         bool verticalFlag = false, horizontalFlag = false;
         currentImpulse = new Vector3(mousePosition.x, mousePosition.y, 0) * ImpulseForce;
 
-        Debug.Log(currentImpulse);
-
-        if(currentImpulse.x < 0){ //Jogado para a esquerda 
-
-            if(MaxImpulseForceHorizontal != 0 && (currentImpulse.x < MaxImpulseForceHorizontal*-1)){
-                currentImpulse = new Vector3(0, currentImpulse.y, 0) + Vector3.right * MaxImpulseForceHorizontal*-1;
-                horizontalFlag = true;
-            }
-            
-        } else if (currentImpulse.x > 0){ //Jogado para a direita
-
-            if (MaxImpulseForceHorizontal != 0 && (currentImpulse.x > MaxImpulseForceHorizontal))
-            {
-                currentImpulse = new Vector3(0, currentImpulse.y, 0) + Vector3.right * MaxImpulseForceHorizontal;
-                horizontalFlag = true;
-            }
+        if (MaxImpulseForceHorizontal != 0 && (currentImpulse.x > MaxImpulseForceHorizontal)){
+            currentImpulse = new Vector3(0, currentImpulse.y, 0) + Vector3.right * MaxImpulseForceHorizontal;
+            horizontalFlag = true;
         }
 
-        if(currentImpulse.y < 0){ //Jogado para baixo
-
-            if(MaxImpulseForceVertical != 0 && (currentImpulse.y < MaxImpulseForceVertical*-1)){
-                currentImpulse = new Vector3(currentImpulse.x, 0, 0) + Vector3.up * MaxImpulseForceVertical*-1;
-                verticalFlag = true;
-            }
-
-        } else if (currentImpulse.x > 0){ //Jogado para cima
-            
-            if (MaxImpulseForceVertical != 0 && (currentImpulse.y > MaxImpulseForceVertical))
-            {
-                currentImpulse = new Vector3(currentImpulse.x, 0, 0) + Vector3.up * MaxImpulseForceVertical;
-                verticalFlag = true;
-            }
+        if (MaxImpulseForceVertical != 0 && (currentImpulse.y > MaxImpulseForceVertical)){
+            currentImpulse = new Vector3(currentImpulse.x, 0, 0) + Vector3.up * MaxImpulseForceVertical;
+            verticalFlag = true;
         }
 
         if (verticalFlag || horizontalFlag)
