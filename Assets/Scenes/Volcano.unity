@@ -26573,7 +26573,12 @@ Prefab:
     - target: {fileID: 114554337205219804, guid: 69a2801da926545a2ae9344e7026ee96,
         type: 2}
       propertyPath: ImpulseForce
-      value: 100
+      value: 230
+      objectReference: {fileID: 0}
+    - target: {fileID: 58308193534881648, guid: 69a2801da926545a2ae9344e7026ee96,
+        type: 2}
+      propertyPath: m_Radius
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a2801da926545a2ae9344e7026ee96, type: 2}
