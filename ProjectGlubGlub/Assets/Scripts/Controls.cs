@@ -20,8 +20,9 @@ public class Controls : MonoBehaviour {
     [HideInInspector]
     public bool isAbleToJump = true;
     public bool isPerfectJump = true;
+    public float MaxImpulseRadius = 0;
 
-	private void Update()
+	private void LateUpdate()
 	{
         if(Input.GetMouseButtonDown(0)){
             OnMouseDown();
@@ -69,10 +70,18 @@ public class Controls : MonoBehaviour {
             line.enabled = true;
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
             bool stopLine = clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
-            // quando clica tem que saber qual o x e y máximo e mínimo que se pode ir
 
-            line.SetPosition(0, player.transform.position + (initialMousePosition - currentMousePosition));
-            line.SetPosition(1, player.transform.position + (initialMousePosition - currentMousePosition) * -1);
+            if(Vector3.Distance(initialMousePosition, currentMousePosition) <= 3){
+                line.SetPosition(0, player.transform.position + (initialMousePosition - currentMousePosition));
+                line.SetPosition(1, player.transform.position + (initialMousePosition - currentMousePosition) * -1);
+            } else {
+
+                Vector3 outsideVector = (initialMousePosition - currentMousePosition).normalized * 3;
+
+                line.SetPosition(0, player.transform.position + outsideVector);
+                line.SetPosition(1, player.transform.position + outsideVector * -1);
+            }
+
             Arrow.SetActive(true);
             Arrow.transform.position = line.GetPosition(0);
         }

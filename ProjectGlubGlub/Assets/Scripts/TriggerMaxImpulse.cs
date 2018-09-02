@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class TriggerMaxImpulse : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+    private CircleCollider2D circle; 
+
+	private void OnEnable()
+	{
+        circle = this.gameObject.GetComponent<CircleCollider2D>();
+        Camera.main.GetComponent<Controls>().MaxImpulseRadius = circle.radius;
 	}
 }

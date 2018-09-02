@@ -14,11 +14,6 @@ public class ClickImpulse : MonoBehaviour {
     private Rigidbody2D rb;
     private Vector3 currentImpulse = Vector3.zero;
 
-	private void Update()
-	{
-		
-	}
-
 	private void OnEnable()
 	{
         rb = this.GetComponent<Rigidbody2D>();

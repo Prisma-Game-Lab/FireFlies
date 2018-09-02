@@ -31,6 +31,7 @@ public class TriggerJumpAgain : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
+        Debug.Log(this.name);
         if (collision.gameObject.layer == 8){
             ctrl.isAbleToJump = true;
         }
