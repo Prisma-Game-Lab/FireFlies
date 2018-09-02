@@ -27,9 +27,8 @@ public class LavaRising : MonoBehaviour {
 
     IEnumerator waitStart(){
 
-        isNotRespawn = true;
         yield return new WaitForSeconds(initialDelay);
-
+        isNotRespawn = true;
         StartCoroutine(riseLava());
     }
 
