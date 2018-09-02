@@ -6119,6 +6119,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114906654604847626, guid: 8229843fe69384de0b0f831889188725,
+        type: 2}
+      propertyPath: initialDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114906654604847626, guid: 8229843fe69384de0b0f831889188725,
+        type: 2}
+      propertyPath: risePercent
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114906654604847626, guid: 8229843fe69384de0b0f831889188725,
+        type: 2}
+      propertyPath: secondsforRise
+      value: 0.0001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8229843fe69384de0b0f831889188725, type: 2}
   m_IsPrefabAsset: 0

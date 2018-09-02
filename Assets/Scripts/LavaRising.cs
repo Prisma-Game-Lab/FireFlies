@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LavaRising : MonoBehaviour {
 
+    public float initialDelay = 1.0f;
     public float risePercent = 0.1f;
     public float secondsforRise = 1.0f; 
 
@@ -18,6 +19,8 @@ public class LavaRising : MonoBehaviour {
 	}
 
     IEnumerator riseLava(){
+
+        yield return new WaitForSeconds(initialDelay);
 
         while(true){
             yield return new WaitForSeconds(secondsforRise);
