@@ -15,12 +15,12 @@ public class Controls : MonoBehaviour {
     private Vector3 currentMousePosition = Vector3.zero;
     private Vector3 initialMousePosition = Vector3.zero;
 
-    private int perfectCounter;
-
     [HideInInspector]
     public bool isAbleToJump = true;
+    [HideInInspector]
     public bool isPerfectJump = true;
-    public float MaxImpulseRadius = 0;
+    [HideInInspector]
+    public float MaxImpulseRadius = 3;
 
 	private void LateUpdate()
 	{
@@ -69,14 +69,14 @@ public class Controls : MonoBehaviour {
             time.slowTime();
             line.enabled = true;
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
-            bool stopLine = clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
+            clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
 
-            if(Vector3.Distance(initialMousePosition, currentMousePosition) <= 3){
+            if(Vector3.Distance(initialMousePosition, currentMousePosition) <= MaxImpulseRadius){
                 line.SetPosition(0, player.transform.position + (initialMousePosition - currentMousePosition));
                 line.SetPosition(1, player.transform.position + (initialMousePosition - currentMousePosition) * -1);
             } else {
 
-                Vector3 outsideVector = (initialMousePosition - currentMousePosition).normalized * 3;
+                Vector3 outsideVector = (initialMousePosition - currentMousePosition).normalized * MaxImpulseRadius;
 
                 line.SetPosition(0, player.transform.position + outsideVector);
                 line.SetPosition(1, player.transform.position + outsideVector * -1);
