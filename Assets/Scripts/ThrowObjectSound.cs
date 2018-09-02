@@ -13,6 +13,9 @@ public class ThrowObjectSound : MonoBehaviour {
     private float volHighRange = 1.0f;
 
 
+
+
+
     void Awake () {
     
         source = GetComponent<AudioSource>();
@@ -21,14 +24,14 @@ public class ThrowObjectSound : MonoBehaviour {
 
 
     void Update () {
-
-        if (Input.GetButtonUp("Fire1"))
+        
+        if (Input.GetButtonUp("Fire1")) // solta
         {
             float vol = Random.Range (volLowRange, volHighRange);
             source.PlayOneShot(shootSound,vol);
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1")) // pega
         {
             float vol = Random.Range (volLowRange, volHighRange);
             source.PlayOneShot(aimSound,vol);

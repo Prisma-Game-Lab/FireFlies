@@ -30,7 +30,7 @@ public class FollowPlayer : MonoBehaviour {
 		
 	}
 
-    void updateCenterCam(float YPos){
+    public void updateCenterCam(float YPos){
 
         this.transform.position = new Vector3(this.transform.position.x, YPos, this.transform.position.z);
         

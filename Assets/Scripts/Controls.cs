@@ -17,8 +17,12 @@ public class Controls : MonoBehaviour {
 
     private Vector3 impulseVector = Vector3.zero;
 
-    public Animator cameraAnimator;
-    public Animator playerAnimator;
+    public AudioClip shootSound;
+    public AudioClip aimSound;
+
+    private AudioSource source;
+    private float volLowRange = .5f;
+    private float volHighRange = 1.0f;
 
     [HideInInspector]
     public bool isAbleToJump = true;
@@ -44,6 +48,7 @@ public class Controls : MonoBehaviour {
 
 	private void OnEnable()
 	{
+        source = GetComponent<AudioSource>();
         time = Main.GetComponent<TimeManager>();
         player = GameObject.Find("Player");
         line = player.GetComponent<LineRenderer>();
@@ -55,6 +60,7 @@ public class Controls : MonoBehaviour {
 
         // line
         line.material = new Material(Shader.Find("Particles/Additive"));
+        line.widthMultiplier = 0.2f;
         line.positionCount = 2;
 
     } 
@@ -62,9 +68,12 @@ public class Controls : MonoBehaviour {
     // Clicou
 	private void OnMouseDown()
 	{
-        playerAnimator.SetBool("charging", true);
-        cameraAnimator.SetBool("Aiming", true);
         initialMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+        if (isAbleToJump)
+        {
+        	float vol = Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(aimSound, vol);
+        }
     }
 
     // Está clicando
@@ -104,14 +113,14 @@ public class Controls : MonoBehaviour {
             GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             clickImpulsePlayerComponent.CreateImpulse(impulseVector);
             clickImpulsePlayerComponent.Jump(isPerfectJump);
+            float vol = Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(shootSound, vol);
             isAbleToJump = false;
             currentMousePosition = Vector3.zero;
             initialMousePosition = Vector3.zero;
             impulseVector = Vector3.zero;
             isPerfectJump = false;
             Arrow.SetActive(false);
-            playerAnimator.SetBool("charging", false);
-            cameraAnimator.SetBool("Aiming", false);
         }
 	}
 
