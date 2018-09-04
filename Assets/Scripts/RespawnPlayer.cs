@@ -6,7 +6,7 @@ public class RespawnPlayer : MonoBehaviour {
 
     [HideInInspector]
     public Vector3 RespawnPosition;
-    public float lavaRespawn = 50;
+    public float lavaRespawn = 35;
 
 	private void OnEnable()
 	{
@@ -15,8 +15,7 @@ public class RespawnPlayer : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-
-        RespawnaPlayer(collision.gameObject.transform,true);
+        RespawnaPlayer(collision.gameObject.transform);
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)
@@ -29,7 +28,7 @@ public class RespawnPlayer : MonoBehaviour {
 		
 	}
 
-    public void RespawnaPlayer(Transform go, bool isLava){
+    public void RespawnaPlayer(Transform go){
 
         if(go.tag == "Player"){
             go.transform.position = RespawnPosition;
@@ -38,16 +37,9 @@ public class RespawnPlayer : MonoBehaviour {
             playerRb.velocity = Vector2.zero;
             GameObject.Find("Camera").GetComponent<FollowPlayer>().updateCenterCam(RespawnPosition.y + 5);
 
-            if (isLava){
-                
-                GameObject.Find("Lava").GetComponent<LavaRising>().isNotRespawn = false;
-                this.transform.position = new Vector3(this.transform.position.x, RespawnPosition.y - lavaRespawn, 0);
-                this.GetComponent<LavaRising>().StartLavaRising();
-            } else {
-                GameObject.Find("Lava").GetComponent<LavaRising>().isNotRespawn = false;
-                GameObject.Find("Lava").transform.position = new Vector3(this.transform.position.x, RespawnPosition.y - lavaRespawn, 0);
-                GameObject.Find("Lava").GetComponent<LavaRising>().StartLavaRising();
-            }
+            GameObject.Find("Lava").GetComponent<LavaRising>().isNotRespawn = false;
+            GameObject.Find("Lava").transform.position = new Vector3(GameObject.Find("Lava").transform.position.x, RespawnPosition.y - lavaRespawn, 0);
+            GameObject.Find("Lava").GetComponent<LavaRising>().StartLavaRising();
         }
     }
 }

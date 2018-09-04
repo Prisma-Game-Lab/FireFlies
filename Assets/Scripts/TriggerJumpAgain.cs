@@ -15,8 +15,10 @@ public class TriggerJumpAgain : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-        Debug.Log("Faz coisas perfeitamente");
-        ctrl.isPerfectJump = true;
+        if(collision.gameObject.layer == 8){
+            //Debug.Log("Faz coisas perfeitamente");
+            ctrl.isPerfectJump = true;
+        }
 	}
 
 	private void OnCollisionStay2D(Collision2D collision)
@@ -31,7 +33,6 @@ public class TriggerJumpAgain : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-        Debug.Log(this.name);
         if (collision.gameObject.layer == 8){
             ctrl.isAbleToJump = true;
 	    ctrl.feedbackParticles.SetActive(false);

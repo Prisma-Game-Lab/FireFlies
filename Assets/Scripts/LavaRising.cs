@@ -11,21 +11,53 @@ public class LavaRising : MonoBehaviour {
     [HideInInspector]
     public bool isNotRespawn = true;
 
+    private float currentInitialDelay = 0;
+    private float currentSecondsForRise = 0;
+
+    private bool isRising = false;
+
 	// Use this for initialization
 	void Start () {
         StartLavaRising();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
+
+        if (isNotRespawn){
+
+            if(!isRising){
+
+                currentInitialDelay += Time.deltaTime;
+
+                if(currentInitialDelay >= initialDelay){
+                    isRising = true;
+                    currentInitialDelay = 0;
+                }
+
+            } else {
+
+                currentSecondsForRise += Time.deltaTime; 
+
+                if(currentSecondsForRise >= currentSecondsForRise){
+                    currentSecondsForRise = 0;
+                    this.transform.position += new Vector3(0, risePercent, 0);
+                } 
+            }
+            
+        } else {
+            isRising = false;
+            isNotRespawn = true;
+        }
+
 		
 	}
 
     public void StartLavaRising(){
-        StartCoroutine(waitStart());
+        //StartCoroutine(waitStart());
     }
 
-    IEnumerator waitStart(){
+    /*IEnumerator waitStart(){
 
         yield return new WaitForSeconds(initialDelay);
         isNotRespawn = true;
@@ -33,10 +65,10 @@ public class LavaRising : MonoBehaviour {
     }
 
     IEnumerator riseLava(){
-
+        
         while(isNotRespawn){
             yield return new WaitForSeconds(secondsforRise);
             this.transform.position += new Vector3(0,risePercent,0);
         }
-    }
+    }*/
 }

@@ -37,8 +37,6 @@ public class Controls : MonoBehaviour {
 
 	private void LateUpdate()
 	{   
-        playerAnim.SetBool("canUse",isAbleToJump);
-
         if(Input.GetMouseButtonDown(0)){
             OnMouseDown();
         }
@@ -50,6 +48,8 @@ public class Controls : MonoBehaviour {
         if (Input.GetMouseButtonUp(0)){
             OnMouseUp();
         }
+
+        playerAnim.SetBool("canUse", isAbleToJump);
 	}
 
 	private void OnEnable()
@@ -87,23 +87,29 @@ public class Controls : MonoBehaviour {
     {
         if (isAbleToJump)
         {
+            // Diminui o tempo
             time.slowTime();
+
+            // Desenha a linha do impulso
             line.enabled = true;
+
+            // ajeita a posição do mouse e pega o tamanho do impulso para quando ele soltar o player
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
             clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
 
+            // calcula a distancia maxima que o vetor pode ter
             if(Vector3.Distance(initialMousePosition, currentMousePosition) <= MaxImpulseRadius){
                 line.SetPosition(0, player.transform.position + (initialMousePosition - currentMousePosition));
                 line.SetPosition(1, player.transform.position + (initialMousePosition - currentMousePosition) * -1);
                 impulseVector = initialMousePosition - currentMousePosition;
             } else {
-
                 Vector3 outsideVector = (initialMousePosition - currentMousePosition).normalized * MaxImpulseRadius;
                 line.SetPosition(0, player.transform.position + outsideVector);
                 line.SetPosition(1, player.transform.position + outsideVector * -1);
                 impulseVector = outsideVector;
             }
 
+            // ajeita a ponta do vetor
             Arrow.SetActive(true);
             Arrow.transform.position = line.GetPosition(0);
             //Arrow.transform.position = Quaternion.Euler(impulseVector.normalized);
@@ -115,19 +121,30 @@ public class Controls : MonoBehaviour {
 	{
         if (isAbleToJump)
         {
+            // libera o tempo a ser normal
             time.normalTime();
+
+            // apaga a linha de impulso
             line.enabled = false;
+            Arrow.SetActive(false);
+
+            // Zera a velocidade do player antes de dar um novo impulso para não ter soma de vetores
             GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             clickImpulsePlayerComponent.CreateImpulse(impulseVector);
             clickImpulsePlayerComponent.Jump(isPerfectJump);
+
+            // Solta o som do impulso
             float vol = Random.Range(volLowRange, volHighRange);
             source.PlayOneShot(shootSound, vol);
+
+            // coloca como falso até que o player toque numa plataforma novamente
             isAbleToJump = false;
+            isPerfectJump = false;
+
+            // zera todos os efeitos para recalculagem
             currentMousePosition = Vector3.zero;
             initialMousePosition = Vector3.zero;
             impulseVector = Vector3.zero;
-            isPerfectJump = false;
-            Arrow.SetActive(false);
         }
 	}
 

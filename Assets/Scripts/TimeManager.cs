@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour {
 
-    public float TimeControl;
+    public float TimeControl = 0.1f;
 
-    public void slowTime(){
+	private void OnEnable()
+	{
+        Time.fixedDeltaTime = 0.02f;
+	}
+
+	public void slowTime(){
         Time.timeScale = TimeControl;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
     }
