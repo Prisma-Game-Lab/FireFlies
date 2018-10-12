@@ -2708,21 +2708,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 970286263}
   m_Script: {fileID: 11500000, guid: 839a9016a9fef4565a6a9131f462ac62, type: 3}
---- !u!114 &1569742265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1569742262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b35207bd653ce1848834701ef3b2f250, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EasyModules: []
-  MediumModules:
-  - {fileID: 0}
-  HardModules: []
 --- !u!4 &1622133673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4471826404012622, guid: 991b332f38789407db654b564af101b0,

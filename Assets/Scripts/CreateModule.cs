@@ -11,13 +11,12 @@ public class CreateModule : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		Module Modulescript = GameObject.Find("MainScripts").GetComponent<Module>();
-
-		thisModule = new Module((int) this.GetComponent<BoxCollider2D>().size.y, Difficulty, this.gameObject);
+		//thisModule = new Module((int) this.GetComponent<BoxCollider2D>().size.y, Difficulty, this.gameObject);
 	}
 
-    public Module GetModule()
+    public Module CreateNewModule(int index, int posPrevious)
     {
+        thisModule = new Module((int)this.GetComponent<BoxCollider2D>().size.y, posPrevious, Difficulty, this.gameObject, true, index);
         return thisModule;
     }
 

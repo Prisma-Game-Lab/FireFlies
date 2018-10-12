@@ -11,7 +11,10 @@ public class ModuleGenerator : MonoBehaviour {
     private float initialPositionX = 3.88f;
     private float initialPositionY;
 
+    private float MaxPositionWithLastModule;
+
     private List<Module> gameModules;
+    private int currentIndex = 0;
 
     private Module currentModule;
 
@@ -31,28 +34,58 @@ public class ModuleGenerator : MonoBehaviour {
 
         initialPositionY = player.transform.position.y;
 
-	}
+        AddModuleInList(Difficulty.easy);
+        currentIndex = 0;
+        currentModule = gameModules[currentIndex];
+
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 
+        foreach (Module module in gameModules)
+        {
+            // verificar se o player tá dentro desse modulo, se esse modulo for o ultimo módulo, gera um novo módulo
+            if (player.transform.position.y >= MaxPositionWithLastModule && player.transform.position.y <= MaxPositionWithLastModule + module.Size)
+            {
+                currentModule = module;
+                currentIndex = module.ListIndex;
+
+                if(gameModules.Count == module.ListIndex)
+                {
+                    Debug.Log("Está no ultimo módulo, cria mais um módulo seguinte");
+                }
+            }
+        }
+
+        if(player.transform.position.y <= initialPositionX + currentModule.Size)
+        {
+            currentModule = gameModules[currentIndex];
+        }
         // Verifica em que modulo o player está atualmente
 		
 	}
 
+    private void AddModuleInList(Difficulty difficulty)
+    {
+        Module lastModule = ModuleRandomGenerator(difficulty);
+        gameModules.Add(lastModule);
+        MaxPositionWithLastModule += lastModule.Size;
+    }
 
-    private Module ModuleGenerator(Difficulty difficulty)
+
+    private Module ModuleRandomGenerator(Difficulty difficulty)
     {
         if (difficulty == Difficulty.easy)
         {
             if(EasyModules.Length > 0)
             {
                 int index = Random.Range(0, EasyModules.Length);
-                return EasyModules[index].GetComponent<CreateModule>().GetModule();
+                return EasyModules[index].GetComponent<CreateModule>().CreateNewModule(gameModules.Count, (int) MaxPositionWithLastModule);
             } else
             {
                 Debug.Log("Não há módulos fáceis disponíveis, tentando achar um módulo médio");
-                return ModuleGenerator(Difficulty.medium);
+                return ModuleRandomGenerator(Difficulty.medium);
             }
             
         } else if (difficulty == Difficulty.medium)
@@ -60,20 +93,20 @@ public class ModuleGenerator : MonoBehaviour {
             if (MediumModules.Length > 0)
             {
                 int index = Random.Range(0, MediumModules.Length);
-                return MediumModules[index].GetComponent<CreateModule>().GetModule();
+                return MediumModules[index].GetComponent<CreateModule>().CreateNewModule(gameModules.Count, (int) MaxPositionWithLastModule);
             }
             else
             {
                 Debug.Log("Não há módulos médios disponíveis, tentando achar um módulo difícil");
-                return ModuleGenerator(Difficulty.hard);
+                return ModuleRandomGenerator(Difficulty.hard);
             }
 
         } else if (difficulty == Difficulty.hard)
         {
-            if (MediumModules.Length > 0)
+            if (HardModules.Length > 0)
             {
-                int index = Random.Range(0, MediumModules.Length);
-                return MediumModules[index].GetComponent<CreateModule>().GetModule();
+                int index = Random.Range(0, HardModules.Length);
+                return HardModules[index].GetComponent<CreateModule>().CreateNewModule(gameModules.Count, (int) MaxPositionWithLastModule);
             }
             else
             {
@@ -81,5 +114,7 @@ public class ModuleGenerator : MonoBehaviour {
                 return null;
             }
         }
+
+        return null;
     }
 }
