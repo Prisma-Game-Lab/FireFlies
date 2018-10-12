@@ -345,6 +345,10 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157a4eec32ccd4fcfbd231bd9fbc30f0, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &345209286 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 345209285}
 --- !u!1 &407800230
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +374,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1560679917}
+  - {fileID: 345209286}
   - {fileID: 1536099975}
   - {fileID: 145296434}
   - {fileID: 1844149990}
@@ -503,26 +507,6 @@ Prefab:
     - target: {fileID: 4290002654955810, guid: 8229843fe69384de0b0f831889188725, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114906654604847626, guid: 8229843fe69384de0b0f831889188725,
-        type: 2}
-      propertyPath: initialDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114906654604847626, guid: 8229843fe69384de0b0f831889188725,
-        type: 2}
-      propertyPath: risePercent
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114906654604847626, guid: 8229843fe69384de0b0f831889188725,
-        type: 2}
-      propertyPath: secondsforRise
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 114641448087388510, guid: 8229843fe69384de0b0f831889188725,
-        type: 2}
-      propertyPath: lavaRespawn
-      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8229843fe69384de0b0f831889188725, type: 2}
@@ -1698,11 +1682,6 @@ Transform:
   m_Father: {fileID: 407800231}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1560679917 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4657132501158854, guid: 157a4eec32ccd4fcfbd231bd9fbc30f0,
-    type: 2}
-  m_PrefabInternal: {fileID: 345209285}
 --- !u!1 &1569742262 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1125905034931598, guid: fb0c1c5af727f49e8805ef675421007c,
@@ -1908,57 +1887,6 @@ Prefab:
     - target: {fileID: 4075287475184146, guid: 69a2801da926545a2ae9344e7026ee96, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075287475184146, guid: 69a2801da926545a2ae9344e7026ee96, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4075287475184146, guid: 69a2801da926545a2ae9344e7026ee96, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561216364080952, guid: 69a2801da926545a2ae9344e7026ee96, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561216364080952, guid: 69a2801da926545a2ae9344e7026ee96, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114554337205219804, guid: 69a2801da926545a2ae9344e7026ee96,
-        type: 2}
-      propertyPath: ImpulseForce
-      value: 330
-      objectReference: {fileID: 0}
-    - target: {fileID: 58308193534881648, guid: 69a2801da926545a2ae9344e7026ee96,
-        type: 2}
-      propertyPath: m_Radius
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114570925865401738, guid: 69a2801da926545a2ae9344e7026ee96,
-        type: 2}
-      propertyPath: aimSound
-      value: 
-      objectReference: {fileID: 8300000, guid: a98ec1b110af02f4eaf49e425d48474e, type: 3}
-    - target: {fileID: 114570925865401738, guid: 69a2801da926545a2ae9344e7026ee96,
-        type: 2}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: dee887831606f4849ab3b19171d5fa84, type: 3}
-    - target: {fileID: 82160856587795222, guid: 69a2801da926545a2ae9344e7026ee96,
-        type: 2}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2a6a869c2886d77459fae61427511bd0, type: 3}
-    - target: {fileID: 50511545607936572, guid: 69a2801da926545a2ae9344e7026ee96,
-        type: 2}
-      propertyPath: m_Mass
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 50511545607936572, guid: 69a2801da926545a2ae9344e7026ee96,
-        type: 2}
-      propertyPath: m_GravityScale
-      value: 2.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a2801da926545a2ae9344e7026ee96, type: 2}
