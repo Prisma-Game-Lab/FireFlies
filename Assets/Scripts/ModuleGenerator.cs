@@ -65,8 +65,9 @@ public class ModuleGenerator : MonoBehaviour {
 
     private void AddModuleInGame(Module module)
     {
-
-        // aaaaaaaaaaaaaaaa
+        // posicao do modulo é a posicao min + metade do size
+        module.ModuleObject.transform.position = new Vector3(initialPositionX,module.PosMin + (module.Size/2),0);
+        
     }
 
     private void AddModuleInList(Difficulty difficulty)
