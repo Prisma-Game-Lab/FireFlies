@@ -18,6 +18,7 @@ public class Module {
 	public Module (int moduleYSize, int posPrevious, Difficulty difficulty, GameObject moduleObject, bool enabled, int index){
 
 		this.Size = moduleYSize;
+        this.PosMin = posPrevious;
         this.Difficulty = difficulty;
         this.ModuleObject = moduleObject;
         this.isEnabledInGame = enabled;
