@@ -19,6 +19,7 @@ public class ModuleGenerator : MonoBehaviour {
     private Module currentModule;
 
     private GameObject player;
+    private GameObject modulesGameObjects;
 
     /* 
 	   2 - jogo começa com 3 módulos formados
@@ -31,9 +32,11 @@ public class ModuleGenerator : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = GameObject.Find("Player").gameObject;
+        modulesGameObjects = GameObject.Find("Modules").gameObject;
 
         initialPositionY = player.transform.position.y;
 
+        MaxPositionWithLastModule = initialPositionY;
         AddModuleInList(Difficulty.easy);
         currentIndex = 0;
         currentModule = gameModules[currentIndex];
@@ -58,23 +61,21 @@ public class ModuleGenerator : MonoBehaviour {
                 }
             }
         }
-
-        if(player.transform.position.y <= initialPositionX + currentModule.Size)
-        {
-            currentModule = gameModules[currentIndex];
-            // adiciona o modulo no jogo
-        }
-        // Verifica em que modulo o player está atualmente
-		
 	}
+
+    private void AddModuleInGame(Module module)
+    {
+
+        // aaaaaaaaaaaaaaaa
+    }
 
     private void AddModuleInList(Difficulty difficulty)
     {
         Module lastModule = ModuleRandomGenerator(difficulty);
         gameModules.Add(lastModule);
         MaxPositionWithLastModule += lastModule.Size;
+        AddModuleInGame(lastModule);
     }
-
 
     private Module ModuleRandomGenerator(Difficulty difficulty)
     {
