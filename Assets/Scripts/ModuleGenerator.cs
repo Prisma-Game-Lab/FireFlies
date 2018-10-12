@@ -39,4 +39,47 @@ public class ModuleGenerator : MonoBehaviour {
         // Verifica em que modulo o player está atualmente
 		
 	}
+
+
+    private Module ModuleGenerator(Difficulty difficulty)
+    {
+        if (difficulty == Difficulty.easy)
+        {
+            if(EasyModules.Length > 0)
+            {
+                int index = Random.Range(0, EasyModules.Length);
+                return EasyModules[index].GetComponent<CreateModule>().GetModule();
+            } else
+            {
+                Debug.Log("Não há módulos fáceis disponíveis, tentando achar um módulo médio");
+                return ModuleGenerator(Difficulty.medium);
+            }
+            
+        } else if (difficulty == Difficulty.medium)
+        {
+            if (MediumModules.Length > 0)
+            {
+                int index = Random.Range(0, MediumModules.Length);
+                return MediumModules[index].GetComponent<CreateModule>().GetModule();
+            }
+            else
+            {
+                Debug.Log("Não há módulos médios disponíveis, tentando achar um módulo difícil");
+                return ModuleGenerator(Difficulty.hard);
+            }
+
+        } else if (difficulty == Difficulty.hard)
+        {
+            if (MediumModules.Length > 0)
+            {
+                int index = Random.Range(0, MediumModules.Length);
+                return MediumModules[index].GetComponent<CreateModule>().GetModule();
+            }
+            else
+            {
+                Debug.Log("Não há módulos difíceis disponíveis, encerrando procura");
+                return null;
+            }
+        }
+    }
 }
