@@ -54,6 +54,7 @@ public class ModuleGenerator : MonoBehaviour {
                 if(gameModules.Count == module.ListIndex)
                 {
                     Debug.Log("Está no ultimo módulo, cria mais um módulo seguinte");
+                    AddModuleInList((Difficulty)Random.Range(0,2));
                 }
             }
         }
@@ -61,6 +62,7 @@ public class ModuleGenerator : MonoBehaviour {
         if(player.transform.position.y <= initialPositionX + currentModule.Size)
         {
             currentModule = gameModules[currentIndex];
+            // adiciona o modulo no jogo
         }
         // Verifica em que modulo o player está atualmente
 		
