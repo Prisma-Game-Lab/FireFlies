@@ -14,9 +14,11 @@ public class CreateModule : MonoBehaviour {
 		//thisModule = new Module((int) this.GetComponent<BoxCollider2D>().size.y, Difficulty, this.gameObject);
 	}
 
-    public Module CreateNewModule(int index, int posPrevious)
+    public Module CreateNewModule(int index, float posPrevious)
     {
-        thisModule = new Module((int)this.GetComponent<BoxCollider2D>().size.y, posPrevious, Difficulty, this.gameObject, true, index);
+        Debug.Log(this.GetComponent<BoxCollider2D>().size.y + " SIZE DO BICHO");
+        Debug.Log(posPrevious + " POSPREV DO BICHO");
+        thisModule = new Module(this.GetComponent<BoxCollider2D>().size.y, posPrevious, Difficulty, this.gameObject, true, index);
         return thisModule;
     }
 

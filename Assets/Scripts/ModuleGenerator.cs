@@ -36,7 +36,6 @@ public class ModuleGenerator : MonoBehaviour {
 
         initialPositionY = player.transform.position.y;
 
-        Debug.Log("AAAAA");
         MaxPositionWithLastModule = initialPositionY;
         AddModuleInList(Difficulty.easy);
         currentIndex = 0;
@@ -51,20 +50,15 @@ public class ModuleGenerator : MonoBehaviour {
             foreach (Module module in gameModules)
             {
                 // verificar se o player tá dentro desse modulo, se esse modulo for o ultimo módulo, gera um novo módulo
-                if ((player.transform.position.y + 14.9) >= currentModule.PosMin && (player.transform.position.y + 14.9) <= currentModule.PosMin + module.Size)
+                if ((player.transform.position.y + 14.9) >= module.PosMin && (player.transform.position.y + 14.9) <= module.PosMin + module.Size)
                 {
-                    Debug.Log("Entrei carai 4");
                     currentModule = module;
                     currentIndex = module.ListIndex;
 
-                    Debug.Log(module.ListIndex + "Index" );
-                    Debug.Log(gameModules.Count + "Count" );
-
                     if(gameModules.Count - 1 == module.ListIndex)
                     {
-                        Debug.Log("Entrei carai 3");
                         Debug.Log("Está no ultimo módulo, cria mais um módulo seguinte");
-                        AddModuleInList((Difficulty)Random.Range(0,2));
+                        AddModuleInList((Difficulty)Random.Range(1,3));
                     }
                 }
             }
@@ -74,16 +68,16 @@ public class ModuleGenerator : MonoBehaviour {
 
     private void AddModuleInGame(Module module)
     {
-        Debug.Log("Entrei carai 1");
         // posicao do modulo é a posicao min + metade do size
         module.ModuleObject.transform.parent = modulesGameObjects.transform;
-        module.ModuleObject.transform.position = new Vector3(initialPositionX, module.PosMin,0);
+        Debug.Log(MaxPositionWithLastModule + " Max");
+        Debug.Log(module.PosMin + " posMin");
+        module.ModuleObject.transform.position = new Vector3(initialPositionX, module.PosMin + module.Size/2,0);
         
     }
 
     private void AddModuleInList(Difficulty difficulty)
     {
-        Debug.Log("Entrei carai 2");
         Module lastModule = ModuleRandomGenerator(difficulty);
         gameModules.Add(lastModule);
         MaxPositionWithLastModule += lastModule.Size;
@@ -98,7 +92,7 @@ public class ModuleGenerator : MonoBehaviour {
             {
                 int index = Random.Range(0, EasyModules.Length);
                 GameObject instance = Instantiate(EasyModules[index]);
-                return instance.GetComponent<CreateModule>().CreateNewModule(gameModules.Count, (int) MaxPositionWithLastModule);
+                return instance.GetComponent<CreateModule>().CreateNewModule(gameModules.Count, MaxPositionWithLastModule);
             } else
             {
                 Debug.Log("Não há módulos fáceis disponíveis, tentando achar um módulo médio");
@@ -111,7 +105,7 @@ public class ModuleGenerator : MonoBehaviour {
             {
                 int index = Random.Range(0, MediumModules.Length);
                 GameObject instance = Instantiate(MediumModules[index]);
-                return instance.GetComponent<CreateModule>().CreateNewModule(gameModules.Count, (int) MaxPositionWithLastModule);
+                return instance.GetComponent<CreateModule>().CreateNewModule(gameModules.Count, MaxPositionWithLastModule);
             }
             else
             {
@@ -125,7 +119,7 @@ public class ModuleGenerator : MonoBehaviour {
             {
                 int index = Random.Range(0, HardModules.Length);
                 GameObject instance = Instantiate(HardModules[index]);
-                return instance.GetComponent<CreateModule>().CreateNewModule(gameModules.Count, (int) MaxPositionWithLastModule);
+                return instance.GetComponent<CreateModule>().CreateNewModule(gameModules.Count, MaxPositionWithLastModule);
             }
             else
             {

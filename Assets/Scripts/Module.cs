@@ -7,15 +7,15 @@ public enum Difficulty { easy, medium, hard };
 public class Module {
 
 	// Tamanho do módulo
-	public int Size;
-    public int PosMin;
+	public float Size;
+    public float PosMin;
     public Difficulty Difficulty;
     public GameObject ModuleObject;
     public bool isEnabledInGame = false;
     public int ListIndex = 0;
 
 	// Iniacializa o módulo
-	public Module (int moduleYSize, int posPrevious, Difficulty difficulty, GameObject moduleObject, bool enabled, int index){
+	public Module (float moduleYSize, float posPrevious, Difficulty difficulty, GameObject moduleObject, bool enabled, int index){
 
 		this.Size = moduleYSize;
         this.PosMin = posPrevious;
