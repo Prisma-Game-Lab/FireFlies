@@ -21,6 +21,9 @@ public class ModuleGenerator : MonoBehaviour {
     private GameObject player;
     private GameObject modulesGameObjects;
 
+    private float backgroundLimit = 302.4f/2;
+    private GameObject background;
+
     /* 
 	   2 - jogo começa com 3 módulos formados
 	   3 - todos os módulos do jogo estarão presentes em uma lista que vai aumentando o tamanho conforme o jogo progride
@@ -33,6 +36,7 @@ public class ModuleGenerator : MonoBehaviour {
     void Start () {
         player = GameObject.Find("Player").gameObject;
         modulesGameObjects = GameObject.Find("Modules").gameObject;
+        background = GameObject.Find("Background").gameObject;
 
         initialPositionY = player.transform.position.y;
 
@@ -45,6 +49,12 @@ public class ModuleGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+        if(player.transform.position.y + 14.9 <= backgroundLimit){
+            backgroundLimit += 302.4f;
+            GameObject newBG = Instantiate(background);
+            newBG.transform.position = new Vector3(background.transform.position.x,background.transform.position.y + 302.4f, background.transform.position.z);
+        }
 
         if (gameModules.Count > 0){
             foreach (Module module in gameModules)
@@ -70,8 +80,6 @@ public class ModuleGenerator : MonoBehaviour {
     {
         // posicao do modulo é a posicao min + metade do size
         module.ModuleObject.transform.parent = modulesGameObjects.transform;
-        Debug.Log(MaxPositionWithLastModule + " Max");
-        Debug.Log(module.PosMin + " posMin");
         module.ModuleObject.transform.position = new Vector3(initialPositionX, module.PosMin + module.Size/2,0);
         
     }
