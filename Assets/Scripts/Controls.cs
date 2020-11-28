@@ -35,7 +35,13 @@ public class Controls : MonoBehaviour {
     [HideInInspector]
     public float MaxImpulseRadius = 3;
 
-	private void LateUpdate()
+    public GameObject pauseCanvas;
+
+    private bool oneCheck = true;
+    private bool oneCheck2 = true;
+    private int pauseState = 0;
+
+    private void LateUpdate()
 	{   
         if(Input.GetMouseButtonDown(0)){
             OnMouseDown();
@@ -52,7 +58,30 @@ public class Controls : MonoBehaviour {
         {
             playerAnim.SetBool("canUse", isAbleToJump);
         }
-	}
+
+        if (Input.GetButtonDown("Cancel") && pauseState == 0)
+        {
+            Debug.Log("Pausou");
+            pauseState = 1;
+            pauseCanvas.SetActive(true);
+            Time.timeScale = 0;
+        }
+        if(Input.GetButtonUp("Cancel") && pauseState == 1)
+        {
+            pauseState = 2;
+        }
+        if (Input.GetButtonDown("Cancel") && pauseState == 2)
+        {
+            Debug.Log("Despausou");
+            pauseState = 3;
+            pauseCanvas.SetActive(false);
+            Time.timeScale = 1;
+        }
+        if(Input.GetButtonUp("Cancel") && pauseState == 3)
+        {
+            pauseState = 0;
+        }
+    }
 
 	private void OnEnable()
 	{

@@ -918,6 +918,7 @@ MonoBehaviour:
   isAbleToJump: 1
   isPerfectJump: 1
   MaxImpulseRadius: 3
+  pauseCanvas: {fileID: 0}
 --- !u!114 &114785055965320708
 MonoBehaviour:
   m_ObjectHideFlags: 1
