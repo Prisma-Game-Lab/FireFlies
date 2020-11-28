@@ -22,4 +22,9 @@ public class TimeManager : MonoBehaviour {
         Time.fixedDeltaTime = 0.02f;
     }
 
+    public void pauseTime() {
+        Time.timeScale = 0f;
+        Time.fixedDeltaTime = 0f;
+    }
+
 }

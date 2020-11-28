@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
+
+    public GameObject PausePanel;
+    public TimeManager time;
 
 	// Use this for initialization
 	void Start () {
@@ -27,4 +31,19 @@ public class GameManager : MonoBehaviour {
     {
         SceneManager.LoadScene("Credits");
     }
+
+    public void Pause() {
+
+        time.pauseTime();
+        PausePanel.SetActive(true);
+
+    }
+
+    public void UnPause() {
+
+        PausePanel.SetActive(false);
+        time.normalTime();
+
+    }
+
 }
