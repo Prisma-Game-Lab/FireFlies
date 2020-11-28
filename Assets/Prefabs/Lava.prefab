@@ -143,9 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDelay: 3
-  risePercent: 0.1
-  secondsforRise: 0.01
-  isNotRespawn: 1
+  risePercent: 0.6
+  justRespawned: 1
 --- !u!212 &212412021470673046
 SpriteRenderer:
   m_ObjectHideFlags: 1

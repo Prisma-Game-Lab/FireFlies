@@ -41,7 +41,7 @@ public class LavaRising : MonoBehaviour {
             } else {
 
                 // Sobe a lava a cada frame em cima da porcentagem indicada
-                this.transform.position += new Vector3(0, risePercent, 0); 
+                this.transform.position += new Vector3(0, risePercent * Time.deltaTime, 0); 
             }
          
         // Ele acabou de respawnar
