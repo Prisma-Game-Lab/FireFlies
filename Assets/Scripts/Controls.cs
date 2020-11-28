@@ -112,7 +112,10 @@ public class Controls : MonoBehaviour {
             // ajeita a ponta do vetor
             Arrow.SetActive(true);
             Arrow.transform.position = line.GetPosition(0);
-            //Arrow.transform.position = Quaternion.Euler(impulseVector.normalized);
+
+            Vector3 dir = line.GetPosition(0) - player.transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Arrow.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
 
