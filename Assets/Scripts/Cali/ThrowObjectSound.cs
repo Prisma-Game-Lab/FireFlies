@@ -16,6 +16,15 @@ public class ThrowObjectSound : MonoBehaviour {
     private bool canJump = true;
     private GameObject mainCamera;
 
+    public SpriteRenderer rostoBase;
+    public SpriteRenderer rosto;
+    public Color colorActive;
+    public Color colorInactive;
+
+    public ParticleSystem particula;
+    public ParticleSystem particula2;
+    private bool onecheck = true;
+
     void Awake () {
     
         source = GetComponent<AudioSource>();
@@ -41,6 +50,22 @@ public class ThrowObjectSound : MonoBehaviour {
             float vol = Random.Range (volLowRange, volHighRange);
             source.PlayOneShot(aimSound,vol);
         }
-    
+        if (canJump)
+        {
+            rostoBase.color = colorActive;
+            rosto.color = Color.white;
+            if (onecheck)
+            {
+                onecheck = false;
+                particula.Play();
+                particula2.Play();
+            }
+        }
+        else
+        {
+            rostoBase.color = colorInactive;
+            rosto.color = colorInactive;
+            onecheck = true;
+        }
     }
 }
