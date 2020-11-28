@@ -546,6 +546,14 @@ Prefab:
       propertyPath: playerAnim
       value: 
       objectReference: {fileID: 1784162582}
+    - target: {fileID: 1421370590382240, guid: 9da244b73e0b74e5a81782fc685ecf9d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096600754937894, guid: 9da244b73e0b74e5a81782fc685ecf9d, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9da244b73e0b74e5a81782fc685ecf9d, type: 2}
   m_IsPrefabAsset: 0
@@ -1051,6 +1059,10 @@ Prefab:
     - target: {fileID: 4471826404012622, guid: 991b332f38789407db654b564af101b0, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512052628051638, guid: 991b332f38789407db654b564af101b0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 991b332f38789407db654b564af101b0, type: 2}
