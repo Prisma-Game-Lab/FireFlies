@@ -96,7 +96,7 @@ public class Controls : MonoBehaviour {
             line.enabled = true;
 
             // ajeita a posição do mouse e pega o tamanho do impulso para quando ele soltar o player
-            currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+            currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - /*player.transform.position*/ initialMousePosition;
             clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
 
             // calcula a distancia maxima que o vetor pode ter
