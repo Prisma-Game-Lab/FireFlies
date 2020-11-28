@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Se pa lixo/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
-    path: Assets/Scenes/ArtHub.unity
+    path: Assets/Scenes/Se pa lixo/ArtHub.unity
     guid: 9c11192a902304412b4181e4e99c7245
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StartScene.unity
     guid: 66ac2a6e4689846fc93cc7b26c33c96f
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: dcb81db081d544e038731a0cd744dcfa
   - enabled: 1
     path: Assets/Scenes/Volcano.unity
     guid: 8cf6c56a3b8dedd44b5331b65b12137b
