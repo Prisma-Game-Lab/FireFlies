@@ -83,6 +83,14 @@ public class Controls : MonoBehaviour {
         }
     }
 
+    public void ResumeGameFromPause()
+    {
+        Debug.Log("Despausou");
+        pauseState = 0;
+        pauseCanvas.SetActive(false);
+        Time.timeScale = 1;
+    }
+
 	private void OnEnable()
 	{
         source = GetComponent<AudioSource>();
