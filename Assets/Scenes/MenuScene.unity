@@ -412,6 +412,10 @@ Prefab:
       propertyPath: orthographic size
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1314977964026308, guid: f1845ee8d54fd4fc1906180fdb126076, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1845ee8d54fd4fc1906180fdb126076, type: 2}
   m_IsPrefabAsset: 0
