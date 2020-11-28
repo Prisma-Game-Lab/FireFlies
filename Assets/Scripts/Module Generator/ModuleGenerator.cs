@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ModuleGenerator : MonoBehaviour {
 
+    // OBS: Modificado só para gerar os 3 módulos da demo
+
     public GameObject[] EasyModules;
     public GameObject[] MediumModules;
     public GameObject[] HardModules;
@@ -34,11 +36,14 @@ public class ModuleGenerator : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         player = GameObject.Find("Player").gameObject;
+
         if (GameObject.Find("Modules") != null)
         {
             modulesGameObjects = GameObject.Find("Modules").gameObject;
         }
+
         if (GameObject.Find("Background") != null)
         {
             background = GameObject.Find("Background").gameObject;
@@ -51,23 +56,31 @@ public class ModuleGenerator : MonoBehaviour {
         currentIndex = 0;
         currentModule = gameModules[currentIndex];
 
+        AddModuleInList(Difficulty.medium);
+        AddModuleInList(Difficulty.hard);
+
+
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        if(player.transform.position.y + 14.9 <= backgroundLimit){
+
+        // Instancia backgrounds - COM BUGS
+        /*if(player.transform.position.y + 14.9 <= backgroundLimit){
             backgroundLimit += 302.4f;
             if (background != null)
             {
                 GameObject newBG = Instantiate(background);
                 newBG.transform.position = new Vector3(background.transform.position.x, background.transform.position.y + 302.4f, background.transform.position.z);
             }
-        }
+        }*/
 
-        if (gameModules.Count > 0){
-            foreach (Module module in gameModules)
-            {
+        // Gera modulos
+        /*if (gameModules.Count > 0){
+
+            foreach (Module module in gameModules)  {
+
                 // verificar se o player tá dentro desse modulo, se esse modulo for o ultimo módulo, gera um novo módulo
                 if ((player.transform.position.y + 14.9) >= module.PosMin && (player.transform.position.y + 14.9) <= module.PosMin + module.Size)
                 {
@@ -81,7 +94,7 @@ public class ModuleGenerator : MonoBehaviour {
                     }
                 }
             }
-        }
+        }*/
         
 	}
 

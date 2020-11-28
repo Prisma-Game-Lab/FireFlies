@@ -21,19 +21,14 @@ public class CheckPointTrigger : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
         if(collision.tag == "Player"){
+
+            // Atualiza o respawn point da cali
             respawnPlayerComponent.RespawnPosition = this.transform.position;
+
+            // Faz o checkpoint sumir
             this.gameObject.SetActive(false);
 			source.PlayOneShot(collectSound);
         }
 	}
 
-	private void OnTriggerStay2D(Collider2D collision)
-	{
-		
-	}
-
-	private void OnTriggerExit2D(Collider2D collision)
-	{
-		
-	}
 }
