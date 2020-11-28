@@ -5,7 +5,7 @@ using UnityEngine;
 public class RespawnPlayer : MonoBehaviour {
 
     [HideInInspector]
-    public Vector3 RespawnPosition; // VERIFICAR ONDE ELE ATUALIZA ESSE VALOR
+    public Vector3 RespawnPosition;
     public float lavaRespawn = 35;
 
 	private void OnEnable()
@@ -17,17 +17,6 @@ public class RespawnPlayer : MonoBehaviour {
 	{
         RespawnaPlayer(collision.gameObject.transform);
 	}
-
-	private void OnTriggerStay2D(Collider2D collision)
-	{
-		
-	}
-
-	private void OnTriggerExit2D(Collider2D collision)
-	{
-		
-	}
-
 
     public void RespawnaPlayer(Transform go){
 
@@ -47,7 +36,6 @@ public class RespawnPlayer : MonoBehaviour {
 
             // coloca a lava abaixo do respawn do player
             GameObject.Find("Lava").transform.position = new Vector3(GameObject.Find("Lava").transform.position.x, RespawnPosition.y - lavaRespawn, 0);
-            //GameObject.Find("Lava").GetComponent<LavaRising>().StartLavaRising();
         }
     }
 }

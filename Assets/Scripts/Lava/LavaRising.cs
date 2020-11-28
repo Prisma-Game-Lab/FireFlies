@@ -19,11 +19,7 @@ public class LavaRising : MonoBehaviour {
     // Espera um tempo inicial antes de começara subir a lava
     private bool isRising = false;
 
-	// Use this for initialization
-	void Start () {
-        //StartLavaRising();
-	}
-	
+
 	// Update is called once per frame
 	void LateUpdate () {
 
@@ -44,7 +40,7 @@ public class LavaRising : MonoBehaviour {
             // Esperou o tempo que precisava para o player respawnar
             } else {
 
-                // Sobe a lava a cada frame em cima da porcentágem indicada
+                // Sobe a lava a cada frame em cima da porcentagem indicada
                 this.transform.position += new Vector3(0, risePercent, 0); 
             }
          
@@ -61,22 +57,4 @@ public class LavaRising : MonoBehaviour {
 
     }
 
-    public void StartLavaRising(){
-        //StartCoroutine(waitStart());
-    }
-
-    /*IEnumerator waitStart(){
-
-        yield return new WaitForSeconds(initialDelay);
-        isNotRespawn = true;
-        StartCoroutine(riseLava());
-    }
-
-    IEnumerator riseLava(){
-        
-        while(isNotRespawn){
-            yield return new WaitForSeconds(secondsforRise);
-            this.transform.position += new Vector3(0,risePercent,0);
-        }
-    }*/
 }
