@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void BackToMenu(){
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("MenuScene");
     }
 
     public void Victory()
