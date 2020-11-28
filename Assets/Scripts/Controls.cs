@@ -76,7 +76,7 @@ public class Controls : MonoBehaviour {
     // Clicou
 	private void OnMouseDown()
 	{
-        initialMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
+        initialMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (isAbleToJump)
         {
         	float vol = Random.Range(volLowRange, volHighRange);
@@ -96,7 +96,7 @@ public class Controls : MonoBehaviour {
             line.enabled = true;
 
             // ajeita a posição do mouse e pega o tamanho do impulso para quando ele soltar o player
-            currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - /*player.transform.position*/ initialMousePosition;
+            currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
 
             // calcula a distancia maxima que o vetor pode ter
