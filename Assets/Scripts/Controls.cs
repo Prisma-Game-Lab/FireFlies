@@ -82,7 +82,13 @@ public class Controls : MonoBehaviour {
             pauseState = 0;
         }
     }
-
+    public void PauseGame()
+    {
+        Debug.Log("Pausou");
+        pauseState = 2;
+        pauseCanvas.SetActive(true);
+        Time.timeScale = 0;
+    }
     public void ResumeGameFromPause()
     {
         Debug.Log("Despausou");
