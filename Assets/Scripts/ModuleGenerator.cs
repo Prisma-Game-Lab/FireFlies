@@ -35,8 +35,14 @@ public class ModuleGenerator : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = GameObject.Find("Player").gameObject;
-        modulesGameObjects = GameObject.Find("Modules").gameObject;
-        background = GameObject.Find("Background").gameObject;
+        if (GameObject.Find("Modules") != null)
+        {
+            modulesGameObjects = GameObject.Find("Modules").gameObject;
+        }
+        if (GameObject.Find("Background") != null)
+        {
+            background = GameObject.Find("Background").gameObject;
+        }
 
         initialPositionY = player.transform.position.y;
 
@@ -52,8 +58,11 @@ public class ModuleGenerator : MonoBehaviour {
 
         if(player.transform.position.y + 14.9 <= backgroundLimit){
             backgroundLimit += 302.4f;
-            GameObject newBG = Instantiate(background);
-            newBG.transform.position = new Vector3(background.transform.position.x,background.transform.position.y + 302.4f, background.transform.position.z);
+            if (background != null)
+            {
+                GameObject newBG = Instantiate(background);
+                newBG.transform.position = new Vector3(background.transform.position.x, background.transform.position.y + 302.4f, background.transform.position.z);
+            }
         }
 
         if (gameModules.Count > 0){
@@ -79,8 +88,11 @@ public class ModuleGenerator : MonoBehaviour {
     private void AddModuleInGame(Module module)
     {
         // posicao do modulo é a posicao min + metade do size
-        module.ModuleObject.transform.parent = modulesGameObjects.transform;
-        module.ModuleObject.transform.position = new Vector3(initialPositionX, module.PosMin + module.Size/2,0);
+        if (module.ModuleObject != null)
+        {
+            module.ModuleObject.transform.parent = modulesGameObjects.transform;
+            module.ModuleObject.transform.position = new Vector3(initialPositionX, module.PosMin + module.Size / 2, 0);
+        }
         
     }
 

@@ -33,10 +33,15 @@ public class TriggerJumpAgain : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-        if (collision.gameObject.layer == 8){
+        if (collision.gameObject.layer == 8)
+        {
             ctrl.isAbleToJump = true;
-	    ctrl.feedbackParticles.SetActive(false);
-	    ctrl.feedbackParticles.SetActive(true);
+
+            if (ctrl.feedbackParticles != null)
+            {
+                ctrl.feedbackParticles.SetActive(false);
+                ctrl.feedbackParticles.SetActive(true);
+            }
         }
 	}
 

@@ -48,8 +48,10 @@ public class Controls : MonoBehaviour {
         if (Input.GetMouseButtonUp(0)){
             OnMouseUp();
         }
-
-        playerAnim.SetBool("canUse", isAbleToJump);
+        if (playerAnim != null)
+        {
+            playerAnim.SetBool("canUse", isAbleToJump);
+        }
 	}
 
 	private void OnEnable()
