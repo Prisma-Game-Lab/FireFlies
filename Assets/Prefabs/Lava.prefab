@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDelay: 3
-  risePercent: 0.3
+  risePercent: 5
   justRespawned: 1
 --- !u!212 &212412021470673046
 SpriteRenderer:
