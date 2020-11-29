@@ -8,6 +8,8 @@ public class RespawnPlayer : MonoBehaviour {
     public Vector3 RespawnPosition;
     public float lavaRespawn = 35;
 
+    public GameManager gm;
+
 	private void OnEnable()
 	{
         RespawnPosition = GameObject.Find("Player").transform.position;
@@ -21,6 +23,9 @@ public class RespawnPlayer : MonoBehaviour {
     public void RespawnaPlayer(Transform go){
 
         if(go.tag == "Player"){
+            gm.SceneTransition("fadeIn");
+            StartCoroutine(Wait(1.0f));
+            gm.SceneTransition("fadeOut");
 
             // Volta o player pra respawn position (que é atualizada a cada checkpoint que ele pega)
             go.transform.position = RespawnPosition;
@@ -38,4 +43,6 @@ public class RespawnPlayer : MonoBehaviour {
             GameObject.Find("Lava").transform.position = new Vector3(GameObject.Find("Lava").transform.position.x, RespawnPosition.y - lavaRespawn, 0);
         }
     }
+
+    IEnumerator Wait (float t) {yield return new WaitForSeconds(t);}
 }

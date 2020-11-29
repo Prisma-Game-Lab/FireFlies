@@ -8,18 +8,11 @@ public class GameManager : MonoBehaviour {
 
     public GameObject PausePanel;
     public TimeManager time;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Animator transitionAnim;
 
     public void ChangeToGame(){
+        SceneTransition("fadeIn");
+        StartCoroutine(Wait(0.5f));
         SceneManager.LoadScene("Volcano");
     }
 
@@ -44,6 +37,18 @@ public class GameManager : MonoBehaviour {
         PausePanel.SetActive(false);
         time.normalTime();
 
+    }
+
+    public void SceneLoader (string s){
+
+    }
+
+    IEnumerator Wait (float t){
+        yield return new WaitForSeconds(t);
+    }
+
+    public void SceneTransition(string state){
+        transitionAnim.SetTrigger(state);
     }
 
 }
