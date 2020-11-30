@@ -261,12 +261,12 @@ Prefab:
     - target: {fileID: 224357607733620900, guid: 4e36ff31737bca042b7dfaed6c096210,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 132.2
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 224357607733620900, guid: 4e36ff31737bca042b7dfaed6c096210,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -58.79
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 224357607733620900, guid: 4e36ff31737bca042b7dfaed6c096210,
         type: 2}
@@ -638,6 +638,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114380409433441376, guid: f1845ee8d54fd4fc1906180fdb126076,
+        type: 2}
+      propertyPath: aimSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a98ec1b110af02f4eaf49e425d48474e, type: 3}
+    - target: {fileID: 114380409433441376, guid: f1845ee8d54fd4fc1906180fdb126076,
+        type: 2}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: dee887831606f4849ab3b19171d5fa84, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1845ee8d54fd4fc1906180fdb126076, type: 2}
   m_IsPrefabAsset: 0
@@ -1331,7 +1341,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 1600, y: 900}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
