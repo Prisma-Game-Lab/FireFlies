@@ -38,18 +38,6 @@ public class ThrowObjectSound : MonoBehaviour {
     void Update () {
 
         canJump = mainCamera.GetComponent<Controls>().isAbleToJump;
-
-        if (Input.GetButtonUp("Fire1") && canJump) // solta
-        {
-            float vol = Random.Range (volLowRange, volHighRange);
-            source.PlayOneShot(shootSound,vol);
-        }
-
-        if (Input.GetButtonDown("Fire1") && canJump) // pega
-        {
-            float vol = Random.Range (volLowRange, volHighRange);
-            source.PlayOneShot(aimSound,vol);
-        }
         if (canJump)
         {
             rostoBase.color = colorActive;

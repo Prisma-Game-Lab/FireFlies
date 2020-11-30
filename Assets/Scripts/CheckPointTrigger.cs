@@ -8,6 +8,7 @@ public class CheckPointTrigger : MonoBehaviour {
     private RespawnPlayer respawnPlayerComponent;
     private GameObject lava;
 
+    public GameObject pickupParticle;
     public AudioClip collectSound;
     private AudioSource source;
 
@@ -26,6 +27,7 @@ public class CheckPointTrigger : MonoBehaviour {
             respawnPlayerComponent.RespawnPosition = this.transform.position;
 
             // Faz o checkpoint sumir
+            Instantiate(pickupParticle, transform.position, Quaternion.identity);
             this.gameObject.SetActive(false);
 			source.PlayOneShot(collectSound);
         }

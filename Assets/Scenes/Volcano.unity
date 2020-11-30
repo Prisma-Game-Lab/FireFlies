@@ -1677,6 +1677,11 @@ Prefab:
       propertyPath: gm
       value: 
       objectReference: {fileID: 1569742264}
+    - target: {fileID: 95874233446738534, guid: 7c8c69731a57a4cdfa15f870595579f1,
+        type: 2}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c8c69731a57a4cdfa15f870595579f1, type: 2}
   m_IsPrefabAsset: 0
