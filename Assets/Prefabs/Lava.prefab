@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RespawnPosition: {x: -7.16, y: 0, z: 0}
-  lavaRespawn: 30
+  lavaRespawn: 37
   gm: {fileID: 0}
 --- !u!114 &114906654604847626
 MonoBehaviour:
