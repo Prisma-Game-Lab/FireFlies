@@ -34,6 +34,8 @@ public class Controls : MonoBehaviour {
     public bool isPerfectJump = true;
     [HideInInspector]
     public float MaxImpulseRadius = 3;
+    [HideInInspector]
+    public float MinImpulseRadius = 1.5f;
 
     public GameObject pauseCanvas;
 
@@ -135,9 +137,6 @@ public class Controls : MonoBehaviour {
             // Diminui o tempo
             time.slowTime();
 
-            // Desenha a linha do impulso
-            line.enabled = true;
-
             // ajeita a posição do mouse e pega o tamanho do impulso para quando ele soltar o player
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             clickImpulsePlayerComponent.CreateImpulse(initialMousePosition - currentMousePosition);
@@ -153,14 +152,25 @@ public class Controls : MonoBehaviour {
                 line.SetPosition(1, player.transform.position + outsideVector * -1);
                 impulseVector = outsideVector;
             }
+            
+            //evita de força zero (game breaking)
+            if(impulseVector.magnitude > MinImpulseRadius){
+                // Desenha a linha do impulso
+                line.enabled = true;
 
-            // ajeita a ponta do vetor
-            Arrow.SetActive(true);
-            Arrow.transform.position = line.GetPosition(0);
+                // ajeita a ponta do vetor
+                Arrow.SetActive(true);
+                Arrow.transform.position = line.GetPosition(0);
 
-            Vector3 dir = line.GetPosition(0) - player.transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            Arrow.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                Vector3 dir = line.GetPosition(0) - player.transform.position;
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                Arrow.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            }
+            else{
+                // apaga a linha de impulso
+                line.enabled = false;
+                Arrow.SetActive(false);
+            }
         }
     }
 
@@ -176,18 +186,21 @@ public class Controls : MonoBehaviour {
             line.enabled = false;
             Arrow.SetActive(false);
 
-            // Zera a velocidade do player antes de dar um novo impulso para não ter soma de vetores
-            GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            clickImpulsePlayerComponent.CreateImpulse(impulseVector);
-            clickImpulsePlayerComponent.Jump(isPerfectJump);
+            //evita pulos de força zero (game breaking)
+            if(impulseVector.magnitude > MinImpulseRadius){
+                // Zera a velocidade do player antes de dar um novo impulso para não ter soma de vetores
+                GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                clickImpulsePlayerComponent.CreateImpulse(impulseVector);
+                clickImpulsePlayerComponent.Jump(isPerfectJump);
 
-            // Solta o som do impulso
-            float vol = Random.Range(volLowRange, volHighRange);
-            source.PlayOneShot(shootSound, vol);
+                // Solta o som do impulso
+                float vol = Random.Range(volLowRange, volHighRange);
+                source.PlayOneShot(shootSound, vol);
 
-            // coloca como falso até que o player toque numa plataforma novamente
-            isAbleToJump = false;
-            isPerfectJump = false;
+                // coloca como falso até que o player toque numa plataforma novamente
+                isAbleToJump = false;
+                isPerfectJump = false;
+            }
 
             // zera todos os efeitos para recalculagem
             currentMousePosition = Vector3.zero;
@@ -195,5 +208,4 @@ public class Controls : MonoBehaviour {
             impulseVector = Vector3.zero;
         }
 	}
-
 }
