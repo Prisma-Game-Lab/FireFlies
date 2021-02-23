@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 
     public void BackToMenu(){
         SceneManager.LoadScene("MenuScene");
+        UnPause();
     }
 
     public void Victory()

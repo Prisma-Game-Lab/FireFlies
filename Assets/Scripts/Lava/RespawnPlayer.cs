@@ -39,6 +39,7 @@ public class RespawnPlayer : MonoBehaviour {
         }
 
         //Desliga simulação (para não atualizar câmera durante transição)
+        GameObject.Find("Camera").transform.GetChild(0).GetComponent<Controls>().CancelJump();
         Rigidbody2D goRb = go.GetComponent<Rigidbody2D>();
         goRb.velocity = Vector2.zero;
         goRb.simulated = false;

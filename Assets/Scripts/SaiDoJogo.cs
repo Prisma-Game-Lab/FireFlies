@@ -8,6 +8,7 @@ public class SaiDoJogo : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		gm.time.normalTime();
         gm.Victory();
 	}
 	

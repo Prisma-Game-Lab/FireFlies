@@ -42,6 +42,7 @@ public class Controls : MonoBehaviour {
     private bool oneCheck = true;
     private bool oneCheck2 = true;
     private int pauseState = 0;
+    private bool cancelledJump = false;
 
     private void LateUpdate()
 	{   
@@ -128,7 +129,7 @@ public class Controls : MonoBehaviour {
     // Está clicando
     private void OnMouseDrag()
     {
-        if (isAbleToJump && pauseState == 0)
+        if (isAbleToJump && pauseState == 0 && !cancelledJump)
         {
             // Diminui o tempo
             time.slowTime();
@@ -173,7 +174,7 @@ public class Controls : MonoBehaviour {
     // Soltou o clique
 	private void OnMouseUp()
 	{
-        if (isAbleToJump && pauseState == 0)
+        if (isAbleToJump && pauseState == 0 && !cancelledJump)
         {
             // libera o tempo a ser normal
             time.normalTime();
@@ -203,5 +204,25 @@ public class Controls : MonoBehaviour {
             initialMousePosition = Vector3.zero;
             impulseVector = Vector3.zero;
         }
+        cancelledJump = false;
+
 	}
+    public void CancelJump(){
+        if(isAbleToJump && Input.GetMouseButton(0)){
+            //garante que mouseDrag e mouseUp não realizam funções de pulo
+            cancelledJump = true;
+
+            // libera o tempo a ser normal
+            time.normalTime();
+
+            // apaga a linha de impulso
+            line.enabled = false;
+            Arrow.SetActive(false);
+
+            // zera todos os efeitos para recalculagem
+            currentMousePosition = Vector3.zero;
+            initialMousePosition = Vector3.zero;
+            impulseVector = Vector3.zero;
+        }
+    }
 }
