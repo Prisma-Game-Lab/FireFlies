@@ -150,7 +150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1421370590382240
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +834,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6d769197dab8849498e755ae2d882258, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -848,7 +848,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1187092649604830}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4cd7fbfe19b474016bf4b707d527f73b, type: 2}
   m_CullingMode: 1
@@ -873,9 +873,9 @@ MonoBehaviour:
   tweakMode: 0
   screenBlendMode: 1
   hdr: 0
-  sepBlurSpread: 10
-  quality: 1
-  bloomIntensity: 1.1
+  sepBlurSpread: 5
+  quality: 0
+  bloomIntensity: 1
   bloomThreshold: 0.4
   bloomThresholdColor: {r: 1, g: 1, b: 1, a: 1}
   bloomBlurIterations: 2
@@ -911,9 +911,9 @@ MonoBehaviour:
   tweakMode: 0
   screenBlendMode: 1
   hdr: 0
-  sepBlurSpread: 10
-  quality: 1
-  bloomIntensity: 1.1
+  sepBlurSpread: 3
+  quality: 0
+  bloomIntensity: 1
   bloomThreshold: 0.4
   bloomThresholdColor: {r: 1, g: 1, b: 1, a: 1}
   bloomBlurIterations: 2
@@ -967,6 +967,7 @@ MonoBehaviour:
   isAbleToJump: 1
   isPerfectJump: 1
   MaxImpulseRadius: 3
+  MinImpulseRadius: 1.5
   pauseCanvas: {fileID: 0}
 --- !u!114 &114785055965320708
 MonoBehaviour:
@@ -5624,7 +5625,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1373883798958884}
   serializedVersion: 5
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   looping: 1
   prewarm: 1
@@ -5801,7 +5802,7 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0.6101179, b: 0, a: 0.101960786}
+      minColor: {r: 1, g: 0.6101179, b: 0, a: 0.29803923}
       maxColor: {r: 1, g: 0, b: 0, a: 0.4}
       maxGradient:
         serializedVersion: 2
@@ -5864,8 +5865,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 3
+      scalar: 3
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5917,8 +5918,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 20
-      minScalar: 30
+      scalar: 10
+      minScalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6180,7 +6181,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 2000
     size3D: 1
     rotation3D: 0
     gravityModifier:
@@ -6270,7 +6271,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 2
+      value: 1.5
       mode: 0
       spread: 0
       speed:
@@ -6389,7 +6390,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -14783,7 +14784,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1946275548308410}
   serializedVersion: 5
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   looping: 1
   prewarm: 1
@@ -14960,7 +14961,7 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0.6101179, b: 0, a: 0.101960786}
+      minColor: {r: 1, g: 0.6101179, b: 0, a: 0.29803923}
       maxColor: {r: 1, g: 0, b: 0, a: 0.4}
       maxGradient:
         serializedVersion: 2
@@ -15023,8 +15024,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 3
+      scalar: 3
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -15076,8 +15077,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 20
-      minScalar: 30
+      scalar: 10
+      minScalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -15339,7 +15340,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 2000
     size3D: 1
     rotation3D: 0
     gravityModifier:
@@ -15429,7 +15430,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 2
+      value: 1.5
       mode: 0
       spread: 0
       speed:
@@ -15548,7 +15549,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2

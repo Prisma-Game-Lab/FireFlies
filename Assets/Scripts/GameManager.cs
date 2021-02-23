@@ -11,9 +11,8 @@ public class GameManager : MonoBehaviour {
     public Animator transitionAnim;
 
     public void ChangeToGame(){
-        SceneTransition("fadeIn");
-        StartCoroutine(Wait(0.5f));
         SceneManager.LoadScene("Volcano");
+        //StartCoroutine(TransitionToGame(0.5f));
     }
 
     public void BackToMenu(){
@@ -43,7 +42,8 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    IEnumerator Wait (float t){
+    public IEnumerator TransitionToGame (float t){
+        SceneTransition("fadeIn");
         yield return new WaitForSeconds(t);
     }
 

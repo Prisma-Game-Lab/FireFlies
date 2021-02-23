@@ -11,9 +11,4 @@ public class VoltaMenu : MonoBehaviour {
 
         gm.BackToMenu();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

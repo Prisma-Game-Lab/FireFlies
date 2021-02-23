@@ -56,10 +56,6 @@ public class Controls : MonoBehaviour {
         if (Input.GetMouseButtonUp(0)){
             OnMouseUp();
         }
-        if (playerAnim != null)
-        {
-            playerAnim.SetBool("canUse", isAbleToJump);
-        }
 
         if (Input.GetButtonDown("Cancel") && pauseState == 0)
         {
@@ -122,7 +118,7 @@ public class Controls : MonoBehaviour {
 	private void OnMouseDown()
 	{
         initialMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (isAbleToJump)
+        if (isAbleToJump && pauseState == 0)
         {
         	float vol = Random.Range(volLowRange, volHighRange);
             source.PlayOneShot(aimSound, vol);
@@ -132,7 +128,7 @@ public class Controls : MonoBehaviour {
     // Está clicando
     private void OnMouseDrag()
     {
-        if (isAbleToJump)
+        if (isAbleToJump && pauseState == 0)
         {
             // Diminui o tempo
             time.slowTime();
@@ -177,7 +173,7 @@ public class Controls : MonoBehaviour {
     // Soltou o clique
 	private void OnMouseUp()
 	{
-        if (isAbleToJump)
+        if (isAbleToJump && pauseState == 0)
         {
             // libera o tempo a ser normal
             time.normalTime();
